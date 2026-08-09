@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
   const apiUrl = 'http://198.1.195.241:30120/players.json';
 
   try {
@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
       body: JSON.stringify(data),
     };
   } catch (error) {
-    console.error("Erro na função player-count:", error); // Adicionado log de erro
+    console.error("Erro na função player-count:", error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed to fetch player count', details: error.message }),
