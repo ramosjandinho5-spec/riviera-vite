@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <title>Segurança Pública - Leis Municipais - Riviera</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="src/seguranca-publica.css">
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+
+    <style>
+        /* Estilos críticos para evitar o flash de conteúdo */
+        html { background-color: #111; }
+        body.preloading { opacity: 0; }
+    </style>
+</head>
+<body class="preloading">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="/src/assets/logo.png" alt="Logo Riviera" height="90">
+            <div>
+                <h1>GOVERNO DA CIDADE</h1>
+                <h2>RIVIERA</h2>
+                <p>TRABALHANDO POR TODOS, TODOS OS DIAS.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li class="dropdown">
+                            <a href="#" id="governo-button">GOVERNO <i class="fa-solid fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-landmark"></i> Administração</h4>
+                                    <ul>
+                                        <li><a href="#">Prefeito</a></li>
+                                        <li><a href="#">Vice-Prefeito</a></li>
+                                        <li><a href="#">Secretarias</a></li>
+                                        <li><a href="#">Organograma</a></li>
+                                        <li><a href="#">Agenda Oficial</a></li>
+                                        <li><a href="#">Plano de Governo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-gavel"></i> Legislação</h4>
+                                    <ul>
+                                        <li><a href="constituicao.html" id="constituicao-btn">Constituição da Cidade</a></li>
+                                        <li><a href="codigo-penal.html">Código Penal</a></li>
+                                        <li><a href="#">Código Civil</a></li>
+                                        <li><a href="#">Código Processual Penal</a></li>
+                                        <li><a href="codigo-de-transito.html">Código de Trânsito</a></li>
+                                        <li><a href="calculadora-penal.html">Calculadora Unificada</a></li>
+                                        <li><a href="leis-municipais.html" class="active">Leis Municipais</a></li>
+                                        <li><a href="#">Decretos</a></li>
+                                        <li><a href="#">Portarias</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-building-columns"></i> Órgãos Públicos</h4>
+                                    <ul>
+                                        <li><a href="#">Polícia Militar</a></li>
+                                        <li><a href="#">Polícia Civil</a></li>
+                                        <li><a href="#">Tribunal de Justiça</a></li>
+                                        <li><a href="#">Ministério Público</a></li>
+                                        <li><a href="#">Hospital Municipal</a></li>
+                                        <li><a href="#">Corpo de Bombeiros</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    <li><a href="cidadao.html">CIDADÃO</a></li>
+                    <li><a href="#">TRANSPARÊNCIA</a></li>
+                    <li><a href="#">CONTATO</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="player-count">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="player-count-span">--/--</span>
+                </div>
+                <a href="https://riviera_city.hydrus.gg/" target="_blank" class="btn btn-primary btn-vip">LOJA VIP</a>
+                <a href="#" id="area-governo-btn" class="btn btn-primary">ÁREA DO GOVERNO</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-leis">
+            <div class="hero-content">
+                <h1><i class="fa-solid fa-shield-halved"></i> Portal de Segurança Pública</h1>
+                <p>Explore todas as leis e regulamentos relacionados à Segurança Pública em Riviera.</p>
+            </div>
+        </section>
+
+        <div class="leis-container">
+            <aside class="filtros-lateral">
+                <h3><i class="fa-solid fa-filter"></i> Filtros</h3>
+                <div class="filtro-grupo">
+                    <label for="filtro-palavra-chave">Palavra-chave</label>
+                    <input type="text" id="filtro-palavra-chave" placeholder="Ex: Polícia, Trânsito...">
+                </div>
+                <div class="filtro-grupo">
+                    <label for="filtro-numero">Número da Lei</label>
+                    <input type="text" id="filtro-numero" placeholder="Ex: 005/2026">
+                </div>
+                <div class="filtro-grupo">
+                    <label for="filtro-ano">Ano de Publicação</label>
+                    <select id="filtro-ano">
+                        <option value="">Todos</option>
+                        <option value="2026">2026</option>
+                    </select>
+                </div>
+                <a href="leis-municipais.html" class="btn-retornar" style="margin-top: 2rem;"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
+            </aside>
+
+            <section class="lista-leis">
+                <div class="cards-grid">
+                    <div class="card-lei" data-status="vigente">
+                        <div class="card-header">
+                            <span class="lei-numero">Lei Complementar nº 005/2026</span>
+                            <span class="lei-status vigente">🟢 Vigente</span>
+                        </div>
+                        <p class="lei-categoria"><i class="fa-solid fa-shield-halved"></i> Segurança Pública</p>
+                        <h3 class="lei-nome">Lei da Segurança Pública</h3>
+                        <p class="lei-resumo">Dispõe sobre a organização do Sistema Municipal de Segurança Pública, estabelece as competências dos órgãos de segurança e dá outras providências.</p>
+                        <a href="lei-005-2026.html" class="btn-visualizar">Visualizar Lei</a>
+                    </div>
+                    <div class="card-lei" data-status="vigente">
+                        <div class="card-header">
+                            <span class="lei-numero">Lei Complementar nº 006/2026</span>
+                            <span class="lei-status vigente">🟢 Vigente</span>
+                        </div>
+                        <p class="lei-categoria"><i class="fa-solid fa-shield-halved"></i> Segurança Pública</p>
+                        <h3 class="lei-nome">Lei da Polícia Militar</h3>
+                        <p class="lei-resumo">Dispõe sobre a organização, competências e funcionamento da Polícia Militar da Cidade de Riviera.</p>
+                        <a href="lei-006-2026.html" class="btn-visualizar">Visualizar Lei</a>
+                    </div>
+                    <div class="card-lei" data-status="vigente">
+                        <div class="card-header">
+                            <span class="lei-numero">Lei Complementar nº 007/2026</span>
+                            <span class="lei-status vigente">🟢 Vigente</span>
+                        </div>
+                        <p class="lei-categoria"><i class="fa-solid fa-shield-halved"></i> Segurança Pública</p>
+                        <h3 class="lei-nome">Lei da Polícia Civil</h3>
+                        <p class="lei-resumo">Dispõe sobre a organização, competências e funcionamento da Polícia Civil da Cidade de Riviera.</p>
+                        <a href="lei-007-2026.html" class="btn-visualizar">Visualizar Lei</a>
+                    </div>
+                    <!-- Futuros cards de leis de segurança (Polícia Militar, Civil, etc.) serão adicionados aqui -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

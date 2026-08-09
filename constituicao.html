@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <title>Constituição - Riviera</title>
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/src/header.css">
+    <link rel="stylesheet" href="/src/constituicao.css">
+
+
+    <style>
+        /* Estilos críticos para evitar o flash de conteúdo */
+        html { background-color: #111; }
+        body.preloading { opacity: 0; }
+    </style>
+</head>
+<body class="constituicao-page preloading">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="/src/assets/logo.png" alt="Logo Riviera" height="90">
+            <div>
+                <h1>GOVERNO DA CIDADE</h1>
+                <h2>RIVIERA</h2>
+                <p>TRABALHANDO POR TODOS, TODOS OS DIAS.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li class="dropdown">
+                            <a href="#" id="governo-button">GOVERNO <i class="fa-solid fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-landmark"></i> Administração</h4>
+                                    <ul>
+                                        <li><a href="#">Prefeito</a></li>
+                                        <li><a href="#">Vice-Prefeito</a></li>
+                                        <li><a href="#">Secretarias</a></li>
+                                        <li><a href="#">Organograma</a></li>
+                                        <li><a href="#">Agenda Oficial</a></li>
+                                        <li><a href="#">Plano de Governo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-gavel"></i> Legislação</h4>
+                                    <ul>
+                                        <li><a href="constituicao.html" id="constituicao-btn">Constituição da Cidade</a></li>
+                                        <li><a href="codigo-penal.html">Código Penal</a></li>
+                                        <li><a href="codigo-civil.html">Código Civil</a></li>
+                                        <li><a href="#">Código Processual Penal</a></li>
+                                        <li><a href="codigo-de-transito.html">Código de Trânsito</a></li>
+                                        <li><a href="calculadora-penal.html">Calculadora Unificada</a></li>
+                                        <li><a href="leis-municipais.html">Leis Municipais</a></li>
+                                        <li><a href="#">Decretos</a></li>
+                                        <li><a href="#">Portarias</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-building-columns"></i> Órgãos Públicos</h4>
+                                    <ul>
+                                        <li><a href="#">Polícia Militar</a></li>
+                                        <li><a href="#">Polícia Civil</a></li>
+                                        <li><a href="#">Tribunal de Justiça</a></li>
+                                        <li><a href="#">Ministério Público</a></li>
+                                        <li><a href="#">Hospital Municipal</a></li>
+                                        <li><a href="#">Corpo de Bombeiros</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    <li><a href="cidadao.html">CIDADÃO</a></li>
+                    <li><a href="transparencia.html">TRANSPARÊNCIA</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="player-count">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="player-count-span">--/--</span>
+                </div>
+                <a href="#" class="btn btn-outline">SERVIDOR DA CIDADE</a>
+                <a href="#" class="btn btn-primary btn-vip">LOJA VIP</a>
+                <a href="#" id="area-governo-btn" class="btn btn-primary">ÁREA DO GOVERNO</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-banner-constituicao">
+            <div class="hero-content">
+            </div>
+        </section>
+
+        <div class="constituicao-container">
+            <aside class="indice-lateral">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Pesquisar artigos...">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#preambulo">Preâmbulo</a></li>
+                        <li><a href="#titulo-I">Título I — Princípios Fundamentais</a></li>
+                        <li><a href="#titulo-II">Título II — Direitos Fundamentais</a></li>
+                        <li><a href="#titulo-III">Título III — Deveres do Cidadão</a></li>
+                        <li><a href="#titulo-IV">Título IV — Organização dos Poderes</a></li>
+                        <li><a href="#titulo-V">Título V — Segurança Pública</a></li>
+                        <li><a href="#titulo-VI">Título VI — Saúde Pública</a></li>
+                        <li><a href="#titulo-VII">Título VII — Administração Pública</a></li>
+                        <li><a href="#titulo-VIII">Título VIII — Finanças Públicas</a></li>
+                        <li><a href="#titulo-IX">Título IX — Ordem Pública</a></li>
+                        <li><a href="#titulo-X">Título X — Emendas Constitucionais</a></li>
+                        <li><a href="#disposicoes-finais">Disposições Finais</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <article class="conteudo-constituicao">
+                <section id="preambulo">
+                    <h3>Preâmbulo</h3>
+                    <p>A Constituição da Cidade de Riviera estabelece os princípios fundamentais da administração pública, dos direitos e deveres dos cidadãos, da organização dos Poderes e das garantias fundamentais, servindo como a norma máxima da cidade e orientando toda a legislação municipal.</p>
+                </section>
+
+                <section id="titulo-I">
+                    <h2>TÍTULO I — Dos Princípios Fundamentais</h2>
+                    <h4>Art. 1º</h4>
+                    <p>A Cidade de Riviera constitui uma administração pública democrática, organizada sob os princípios da legalidade, justiça, transparência e interesse coletivo.</p>
+                    <h4>Art. 2º</h4>
+                    <p>Todo poder público será exercido em benefício da população e dentro dos limites estabelecidos por esta Constituição.</p>
+                    <h4>Art. 3º</h4>
+                    <p>São princípios fundamentais da cidade:</p>
+                    <ul>
+                        <li>Legalidade</li>
+                        <li>Moralidade</li>
+                        <li>Transparência</li>
+                        <li>Eficiência</li>
+                        <li>Segurança Pública</li>
+                        <li>Igualdade</li>
+                        <li>Justiça</li>
+                        <li>Respeito aos Direitos Fundamentais</li>
+                    </ul>
+                </section>
+
+                <section id="titulo-II">
+                    <h2>TÍTULO II — Dos Direitos Fundamentais</h2>
+                    <p>Todo cidadão possui direito a:</p>
+                    <ul>
+                        <li>Vida</li>
+                        <li>Liberdade</li>
+                        <li>Segurança</li>
+                        <li>Igualdade perante a lei</li>
+                        <li>Propriedade</li>
+                        <li>Privacidade</li>
+                        <li>Saúde</li>
+                        <li>Educação</li>
+                        <li>Trabalho</li>
+                        <li>Defesa em processos administrativos e judiciais</li>
+                        <li>Presunção de inocência até decisão definitiva</li>
+                        <li>Atendimento digno pelos órgãos públicos</li>
+                    </ul>
+                </section>
+
+                <section id="titulo-III">
+                    <h2>TÍTULO III — Dos Deveres do Cidadão</h2>
+                    <p>São deveres do cidadão:</p>
+                    <ul>
+                        <li>Cumprir a Constituição.</li>
+                        <li>Respeitar as leis municipais.</li>
+                        <li>Preservar o patrimônio público.</li>
+                        <li>Colaborar com as autoridades quando solicitado.</li>
+                        <li>Respeitar os demais cidadãos.</li>
+                        <li>Agir de boa-fé em qualquer procedimento administrativo.</li>
+                    </ul>
+                </section>
+
+                <section id="titulo-IV">
+                    <h2>TÍTULO IV — Da Organização dos Poderes</h2>
+                    <h3>Poder Executivo</h3>
+                    <p>Composto por:</p>
+                    <ul>
+                        <li>Prefeito</li>
+                        <li>Vice-Prefeito</li>
+                        <li>Secretarias Municipais</li>
+                    </ul>
+                    <p>Competências:</p>
+                    <ul>
+                        <li>Administrar a cidade.</li>
+                        <li>Executar políticas públicas.</li>
+                        <li>Sancionar leis.</li>
+                        <li>Publicar decretos.</li>
+                    </ul>
+                    <h3>Poder Legislativo</h3>
+                    <p>Composto pelo Congresso Municipal.</p>
+                    <p>Competências:</p>
+                    <ul>
+                        <li>Criar leis.</li>
+                        <li>Alterar leis.</li>
+                        <li>Fiscalizar o Executivo.</li>
+                        <li>Aprovar o orçamento público.</li>
+                    </ul>
+                    <h3>Poder Judiciário</h3>
+                    <p>Composto por:</p>
+                    <ul>
+                        <li>Tribunal de Justiça</li>
+                        <li>Juízes</li>
+                        <li>Ministério Público</li>
+                        <li>Defensoria Pública</li>
+                    </ul>
+                    <p>Competências:</p>
+                    <ul>
+                        <li>Aplicar a legislação.</li>
+                        <li>Garantir os direitos fundamentais.</li>
+                        <li>Julgar conflitos.</li>
+                    </ul>
+                </section>
+
+                <section id="titulo-V">
+                    <h2>TÍTULO V — Da Segurança Pública</h2>
+                    <p>São órgãos responsáveis pela segurança:</p>
+                    <ul>
+                        <li>Polícia Militar</li>
+                        <li>Polícia Civil</li>
+                        <li>Guarda Municipal</li>
+                        <li>Corpo de Bombeiros</li>
+                    </ul>
+                    <p>Princípios:</p>
+                    <ul>
+                        <li>Legalidade</li>
+                        <li>Uso proporcional da força</li>
+                        <li>Respeito aos direitos humanos</li>
+                        <li>Proteção da população</li>
+                    </ul>
+                </section>
+
+                <section id="titulo-VI">
+                    <h2>TÍTULO VI — Da Saúde Pública</h2>
+                    <p>A saúde constitui direito de todos.</p>
+                    <p>Compete ao Hospital Municipal:</p>
+                    <ul>
+                        <li>Atendimento de urgência e emergência.</li>
+                        <li>Atendimento ambulatorial.</li>
+                        <li>Atendimento hospitalar.</li>
+                        <li>Campanhas de saúde pública.</li>
+                    </ul>
+                    <p>Todo paciente deverá receber atendimento digno, respeitoso e imparcial.</p>
+                </section>
+
+                <section id="titulo-VII">
+                    <h2>TÍTULO VII — Da Administração Pública</h2>
+                    <p>A administração observará os princípios de:</p>
+                    <ul>
+                        <li>Legalidade</li>
+                        <li>Impessoalidade</li>
+                        <li>Moralidade</li>
+                        <li>Publicidade</li>
+                        <li>Eficiência</li>
+                    </ul>
+                    <p>Também disciplinará:</p>
+                    <ul>
+                        <li>Nomeações</li>
+                        <li>Cargos públicos</li>
+                        <li>Concursos</li>
+                        <li>Responsabilidade administrativa</li>
+                    </ul>
+                </section>
+
+                <section id="titulo-VIII">
+                    <h2>TÍTULO VIII — Das Finanças Públicas</h2>
+                    <p>Compete ao Município:</p>
+                    <ul>
+                        <li>Elaborar orçamento.</li>
+                        <li>Arrecadar tributos.</li>
+                        <li>Realizar licitações.</li>
+                        <li>Administrar contratos públicos.</li>
+                        <li>Publicar prestação de contas.</li>
+                    </ul>
+                    <p>Todos os gastos públicos deverão respeitar os princípios da transparência.</p>
+                </section>
+
+                <section id="titulo-IX">
+                    <h2>TÍTULO IX — Da Ordem Pública</h2>
+                    <p>Compete aos órgãos públicos preservar:</p>
+                    <ul>
+                        <li>A paz social.</li>
+                        <li>A ordem pública.</li>
+                        <li>A segurança coletiva.</li>
+                        <li>O patrimônio público.</li>
+                    </ul>
+                </section>
+
+                <section id="titulo-X">
+                    <h2>TÍTULO X — Das Emendas Constitucionais</h2>
+                    <p>A Constituição poderá ser alterada mediante aprovação do Congresso Municipal, observando o quórum qualificado definido em lei.</p>
+                    <p>Nenhuma emenda poderá abolir os direitos e garantias fundamentais previstos nesta Constituição.</p>
+                </section>
+
+                <section id="disposicoes-finais">
+                    <h2>Disposições Finais</h2>
+                    <p>Esta Constituição constitui a norma máxima da Cidade de Riviera.</p>
+                    <p>Todas as demais legislações deverão estar em conformidade com seus princípios.</p>
+                    <p>Em caso de conflito entre uma lei municipal e esta Constituição, prevalecerá a Constituição.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <button id="back-to-top" title="Voltar ao topo">&uarr;</button>
+
+    <script type="module" src="/src/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Modal de Autenticação -->
+    <div id="auth-modal" class="auth-modal-overlay">
+        <div class="auth-modal-content">
+            <span class="close-button">&times;</span>
+            
+            <!-- Formulário de Login -->
+            <form id="login-form" class="auth-form">
+                <h2>Área do Governo</h2>
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit">Entrar</button>
+                <p class="toggle-form">Não tem uma conta? <a id="show-register">Crie uma agora</a></p>
+            </form>
+
+            <!-- Formulário de Criação de Conta -->
+            <form id="register-form" class="auth-form">
+                <h2>Criar Conta</h2>
+                <div class="form-group">
+                    <label for="register-name">Nome Completo</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Senha</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <button type="submit">Criar Conta</button>
+                <p class="toggle-form">Já tem uma conta? <a id="show-login">Faça o login</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

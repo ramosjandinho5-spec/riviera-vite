@@ -1,0 +1,54 @@
+{
+  "empregos": [
+    {
+      "id": 1,
+      "name": "Entregador de Pizza",
+      "description": "Seja o herói da fome da cidade, entregando pizzas quentinhas e deliciosas. Requer agilidade e conhecimento das ruas.",
+      "requirements": "CNH de moto, agilidade, bom senso de direção.",
+      "status": "Aberto",
+      "created_at": "2024-07-15T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Mecânico",
+      "description": "Mantenha os motores da cidade funcionando. Repare e customize veículos na oficina mais movimentada de Riviera.",
+      "requirements": "Conhecimento em mecânica, ferramentas próprias (opcional).",
+      "status": "Aberto",
+      "created_at": "2024-07-15T09:00:00Z"
+    },
+    {
+      "id": 3,
+      "name": "Taxista",
+      "description": "Leve os cidadãos aos seus destinos com segurança e eficiência. Um ótimo jeito de conhecer a cidade e seus habitantes.",
+      "requirements": "CNH de carro, veículo próprio ou alugado, licença de táxi.",
+      "status": "Fechado",
+      "created_at": "2024-07-14T18:00:00Z"
+    }
+  ],
+  "servicos_publicos": [
+    {
+      "id": 1,
+      "name": "Prefeitura de Riviera",
+      "description": "Centro administrativo da cidade. Local para resolver pendências, obter informações e solicitar serviços municipais.",
+      "schedule": "Segunda a Sexta, 09:00 - 17:00",
+      "link_url": "#",
+      "created_at": "2024-07-10T08:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Hospital Central",
+      "description": "Atendimento médico de urgência e emergência 24 horas. Consultas e exames podem ser agendados.",
+      "schedule": "24/7 para emergências",
+      "link_url": "#",
+      "created_at": "2024-07-10T08:05:00Z"
+    },
+    {
+      "id": 3,
+      "name": "Departamento de Trânsito (DETRAN)",
+      "description": "Responsável pela emissão de CNH, registro de veículos e fiscalização do trânsito.",
+      "schedule": "Segunda a Sexta, 08:00 - 16:00",
+      "link_url": "#",
+      "created_at": "2024-07-10T08:10:00Z"
+    }
+  ]
+}

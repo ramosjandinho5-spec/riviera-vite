@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <title>Governo da Cidade ┃ Estado Federal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+        /* Estilos críticos para evitar o flash de conteúdo */
+        html { background-color: #111; }
+        body.preloading { opacity: 0; }
+
+        /* Animação de brilho roxo aprimorada */
+        @keyframes purple-glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 7px rgba(186, 85, 211, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 15px rgba(186, 85, 211, 1));
+            }
+        }
+
+        .player-artwork img {
+            animation: purple-glow 2.5s infinite;
+        }
+    </style>
+</head>
+<body class="preloading">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Cabeçalho Consistente -->
+    <header>
+        <div class="logo">
+            <img src="/src/assets/logo.png" alt="Logo Riviera" height="90">
+            <div>
+                <h1>GOVERNO DA CIDADE</h1>
+                <h2>RIVIERA</h2>
+                <p>TRABALHANDO POR TODOS, TODOS OS DIAS.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">INÍCIO</a></li>
+                    <li class="dropdown">
+                            <a href="#" id="governo-button">GOVERNO <i class="fa-solid fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-landmark"></i> Administração</h4>
+                                    <ul>
+                                        <li><a href="#">Prefeito</a></li>
+                                        <li><a href="#">Vice-Prefeito</a></li>
+                                        <li><a href="#">Secretarias</a></li>
+                                        <li><a href="#">Organograma</a></li>
+                                        <li><a href="#">Agenda Oficial</a></li>
+                                        <li><a href="#">Plano de Governo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-gavel"></i> Legislação</h4>
+                                    <ul>
+                                        <li><a href="constituicao.html" id="constituicao-btn">Constituição da Cidade</a></li>
+                                        <li><a href="codigo-penal.html">Código Penal</a></li>
+                                        <li><a href="codigo-civil.html">Código Civil</a></li>
+                                        <li><a href="#">Código Processual Penal</a></li>
+                                        <li><a href="codigo-de-transito.html">Código de Trânsito</a></li>
+                                        <li><a href="calculadora-penal.html">Calculadora Unificada</a></li>
+                                        <li><a href="leis-municipais.html">Leis Municipais</a></li>
+                                        <li><a href="#">Decretos</a></li>
+                                        <li><a href="#">Portarias</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-building-columns"></i> Órgãos Públicos</h4>
+                                    <ul>
+                                        <li><a href="#">Polícia Militar</a></li>
+                                        <li><a href="#">Polícia Civil</a></li>
+                                        <li><a href="#">Tribunal de Justiça</a></li>
+                                        <li><a href="#">Ministério Público</a></li>
+                                        <li><a href="#">Hospital Municipal</a></li>
+                                        <li><a href="#">Corpo de Bombeiros</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    <li><a href="cidadao.html">CIDADÃO</a></li>
+                    <li><a href="transparencia.html">TRANSPARÊNCIA</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="player-count">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="player-count-span">--/--</span>
+                </div>
+                <a href="#" class="btn btn-outline">SERVIDOR DA CIDADE</a>
+                <a href="#" class="btn btn-primary btn-vip">LOJA VIP</a>
+                <a href="#" id="area-governo-btn" class="btn btn-primary">ÁREA DO GOVERNO</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p>BEM-VINDO AO PORTAL OFICIAL</p>
+                <h1>
+                    <span class="line-1">GOVERNO DA CIDADE</span>
+                    <span class="line-2">RIVIERA</span>
+                </h1>
+                <p>Aqui você encontra informações, serviços e oportunidades para fazer parte da construção de uma cidade melhor para todos.</p>
+                <div class="hero-buttons">
+                    <a href="#" id="about-city-btn" class="btn">SOBRE A CIDADE</a>
+                    <a href="#noticias-section" class="btn">NOTÍCIAS</a>
+                </div>
+            </div>
+
+            <!-- Music Player -->
+            <div class="music-player">
+                <div class="player-artwork">
+                    <img src="/src/assets/play.png" alt="Capa do Álbum">
+                    <div class="play-button-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="player-info">
+                    <div class="track-details">
+                        <span class="artist">RIVIERA RP</span>
+                        <h3>Luzes da Cidade</h3>
+                        <p>Sinta o vento, as luzes e a energia de Riviera. Sua história começa agora.</p>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="time-stamps">
+                            <span class="current-time">0:00</span>
+                            <span class="total-time">0:00</span>
+                        </div>
+                    </div>
+                    <div class="player-controls">
+                        <button class="control-btn shuffle"><i class="fas fa-random"></i></button>
+                        <button class="control-btn prev"><i class="fas fa-step-backward"></i></button>
+                        <button class="control-btn play-pause-btn"><i class="fas fa-play"></i></button>
+                        <button class="control-btn next"><i class="fas fa-step-forward"></i></button>
+                        <button class="control-btn repeat"><i class="fas fa-redo"></i></button>
+                    </div>
+                    <div class="volume-container">
+                        <button class="control-btn volume-btn"><i class="fas fa-volume-up"></i></button>
+                        <input type="range" class="volume-slider" min="0" max="100" value="75">
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="quick-access">
+            <div class="quick-access-cards">
+                <a href="constituicao.html" class="quick-card">
+                    <div class="quick-card-icon"><i class="fa-solid fa-gavel"></i></div>
+                    <div class="quick-card-content">
+                        <h3>Constituição da Cidade</h3>
+                        <p>Conheça a lei fundamental que rege Riviera</p>
+                    </div>
+                </a>
+                <a href="leis-municipais.html" class="quick-card">
+                    <div class="quick-card-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="quick-card-content">
+                        <h3>Leis Municipais</h3>
+                        <p>Consulte as leis complementares e ordinárias</p>
+                    </div>
+                </a>
+                <a href="codigo-penal.html" class="quick-card">
+                    <div class="quick-card-icon"><i class="fa-solid fa-balance-scale"></i></div>
+                    <div class="quick-card-content">
+                        <h3>Código Penal</h3>
+                        <p>Consulte as leis que definem os crimes e as penas</p>
+                    </div>
+                </a>
+                <a href="codigo-civil.html" class="quick-card">
+                    <div class="quick-card-icon"><i class="fa-solid fa-file-contract"></i></div>
+                    <div class="quick-card-content">
+                        <h3>Código Civil</h3>
+                        <p>Normas que regulam as relações privadas dos cidadãos</p>
+                    </div>
+                </a>
+                <a href="codigo-de-transito.html" class="quick-card">
+                    <div class="quick-card-icon"><i class="fa-solid fa-car"></i></div>
+                    <div class="quick-card-content">
+                        <h3>Código de Trânsito</h3>
+                        <p>Regras e sinalizações para a segurança nas vias</p>
+                    </div>
+                </a>
+                <a href="#" class="quick-card" id="open-staff-modal-home">
+                    <div class="quick-card-icon"><i class="fa-solid fa-star"></i></div>
+                    <div class="quick-card-content">
+                        <h3>Quero Ser Staff</h3>
+                        <p>Faça parte da equipe e ajude a construir o futuro da cidade</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="work-for-reviera">
+            <h2 class="roxo">TRABALHE POR RIVIERA</h2>
+            <p>Escolha uma das áreas abaixo e faça sua inscrição para fazer parte do serviço público da nossa cidade.</p>
+            <div class="job-columns">
+                <div class="job-column">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                    <h3>JURÍDICO</h3>
+                    <p>Defenda a justiça e a legalidade na nossa cidade.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Advogado(a) Público(a)</li>
+                        <li><i class="fa-solid fa-check"></i> Procurador(a)</li>
+                        <li><i class="fa-solid fa-check"></i> Assistente Jurídico</li>
+                    </ul>
+                    <a href="#" class="btn-form" id="juridico-form-btn">ACESSAR FORMULÁRIO <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                <div class="job-column">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>POLÍCIA</h3>
+                    <p>Proteja e sirva a população de Riviera.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Delegado(a)</li>
+                        <li><i class="fa-solid fa-check"></i> Oficial</li>
+                        <li><i class="fa-solid fa-check"></i> Investigador(a)</li>
+                        <li><i class="fa-solid fa-check"></i> Praça</li>
+                    </ul>
+                    <a href="#" class="btn-form" id="policia-form-btn">ACESSAR FORMULÁRIO <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                <div class="job-column">
+                    <i class="fa-solid fa-hospital"></i>
+                    <h3>HOSPITAL</h3>
+                    <p>Cuide da saúde e bem-estar da nossa população.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Médico(a)</li>
+                        <li><i class="fa-solid fa-check"></i> Enfermeiro(a)</li>
+                        <li><i class="fa-solid fa-check"></i> Paramédico(a)</li>
+                        <li><i class="fa-solid fa-check"></i> Técnico(a)</li>
+                    </ul>
+                    <a href="#" class="btn-form">ACESSAR FORMULÁRIO <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                <div class="job-column">
+                    <i class="fa-solid fa-landmark"></i>
+                    <h3>CONGRESSO</h3>
+                    <p>Participe das decisões que transformam a cidade.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Vereador(a)</li>
+                        <li><i class="fa-solid fa-check"></i> Assessor(a) Parlamentar</li>
+                        <li><i class="fa-solid fa-check"></i> Consultor(a) Legislativo</li>
+                    </ul>
+                    <a href="#" class="btn-form">ACESSAR FORMULÁRIO <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="noticias-section" class="news-section">
+            <h2>ÚLTIMAS NOTÍCIAS</h2>
+            <div class="news-cards">
+                <!-- Placeholders para os 3 cards de notícia -->
+                <div class="news-card-placeholder" data-slot-id="1"></div>
+                <div class="news-card-placeholder" data-slot-id="2"></div>
+                <div class="news-card-placeholder" data-slot-id="3"></div>
+            </div>
+        </section>
+
+        <section class="media-section">
+            <div class="riviera-tv-column">
+                <h2 class="section-title">RIVIERA TV</h2>
+                <div class="tv-container">
+                    <div class="video-player">
+                        <iframe src="https://www.youtube.com/embed/kIq2j4a6TQE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div id="video-playlist" class="video-playlist">
+                        <!-- A lista de vídeos em destaque será carregada aqui dinamicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-info">
+            <!-- Conteúdo do rodapé -->
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Governo da Cidade de Riviera. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    </div> <!-- Fim do site-container -->
+
+    <div id="about-city-card" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>A história de Riviera</h2>
+            <p>A Cidade de Riviera nasceu do sonho de criar um ambiente inovador, organizado e imersivo, onde cada cidadão pudesse viver uma experiência única de Roleplay.</p>
+            <p>O projeto foi idealizado por Diovane, criador e responsável pela fundação da cidade. Desde o início, o objetivo foi construir uma comunidade sólida, com sistemas modernos, uma administração organizada e uma experiência diferenciada para todos os jogadores.</p>
+            <p>Ao longo do desenvolvimento, diversos colaboradores contribuíram diretamente para transformar esse projeto em realidade. Entre os principais estão Debochado, Fernandes e Jandson, que participaram ativamente da criação, testes, planejamento, organização e aperfeiçoamento dos sistemas que compõem a cidade.</p>
+            <p>Foram semanas de dedicação, reuniões, testes, correções, madrugadas de desenvolvimento e inúmeras horas de trabalho para garantir que cada detalhe estivesse preparado para oferecer uma experiência de qualidade à comunidade.</p>
+            <p>Mais do que um servidor de Roleplay, Riviera representa o resultado do compromisso, da criatividade e do trabalho em equipe de pessoas que acreditaram em um mesmo objetivo: construir uma cidade organizada, justa e em constante evolução.</p>
+            <p>Hoje, a Cidade de Riviera continua crescendo com o apoio de sua comunidade, sempre buscando inovação, transparência e uma experiência cada vez melhor para todos os seus cidadãos.</p>
+        </div>
+    </div>
+
+    <div id="staff-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>Candidatura para a Equipe Staff</h2>
+            <p>Preencha o formulário abaixo com atenção. Entraremos em contato se o seu perfil for selecionado.</p>
+            <form id="staff-form">
+                <div class="form-group">
+                    <label for="nome-real">Nome Real</label>
+                    <input type="text" id="nome-real" name="nome-real" required>
+                </div>
+                <div class="form-group">
+                    <label for="nome-cidade">Nome na Cidade</label>
+                    <input type="text" id="nome-cidade" name="nome-cidade" required>
+                </div>
+                <div class="form-group">
+                    <label for="player-id">Seu ID</label>
+                    <input type="number" id="player-id" name="player-id" required>
+                </div>
+                <div class="form-group">
+                    <label for="experiencia">Experiência (em outros servidores, etc.)</label>
+                    <textarea id="experiencia" name="experiencia" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="horario-disponivel">Horários Disponíveis (para bate-papo)</label>
+                    <input type="text" id="horario-disponivel" name="horario-disponivel" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Candidatura</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="/src/main.js"></script>
+
+    <!-- Painel de Administração (inicialmente oculto) -->
+    <div id="admin-panel" style="display: none;">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>Painel Admin</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="active" data-tab="dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+                <a href="#" data-tab="news"><i class="fa-solid fa-newspaper"></i> Notícias</a>
+                <a href="#" data-tab="videos"><i class="fa-solid fa-video"></i> Vídeos</a>
+                <a href="#" data-tab="jobs"><i class="fa-solid fa-briefcase"></i> Vagas</a>
+                <a href="#" data-tab="administration"><i class="fa-solid fa-user-shield"></i> Administração</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+            </div>
+        </div>
+        <div class="main-content">
+            <div id="dashboard" class="tab-content active">
+                <h2>Dashboard</h2>
+                <p>Bem-vindo ao painel de administração.</p>
+            </div>
+            <div id="news" class="tab-content">
+                <h2>Gerenciar Notícias</h2>
+                <div id="news-slots-container" class="slots-container">
+                    <button class="slot-btn" data-slot="1">Card de Notícia 1</button>
+                    <button class="slot-btn" data-slot="2">Card de Notícia 2</button>
+                    <button class="slot-btn" data-slot="3">Card de Notícia 3</button>
+                </div>
+            </div>
+            <div id="videos" class="tab-content">
+                <div class="tab-header">
+                    <h2>Gerenciar Vídeos</h2>
+                    <button id="add-video-btn" class="btn-primary">Adicionar Vídeo</button>
+                </div>
+                <div id="videos-list-container"></div>
+            </div>
+            <div id="jobs" class="tab-content">
+                <div class="tab-header">
+                    <h2>Gerenciar Vagas de Emprego</h2>
+                    <button id="add-job-btn" class="btn-primary">Adicionar Vaga</button>
+                </div>
+                <div id="jobs-list-container"></div>
+            </div>
+            <div id="administration" class="tab-content">
+                <div class="tab-header">
+                    <h2>Administração</h2>
+                    <button id="open-create-user-modal" class="btn-primary">Criar Usuário</button>
+                </div>
+                <div class="admin-cards-container">
+                    <!-- Card para Gerenciar Prêmio da Jornada -->
+                    <div class="admin-card">
+                        <h3>Prêmio da Jornada</h3>
+                        <p>Defina o texto do prêmio que será exibido ao completar a jornada.</p>
+                        <div class="form-group">
+                            <label for="jornada-premio-input">Texto do Prêmio</label>
+                            <input type="text" id="jornada-premio-input" placeholder="+R$5.000 no Banco">
+                        </div>
+                        <button id="save-jornada-premio-btn" class="btn-primary">Salvar Prêmio</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal do Formulário Jurídico -->
+    <div id="form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <iframe id="form-iframe" src="juridico-form.html" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Modal do Formulário da Polícia -->
+    <div id="form-modal-policia" class="modal">
+        <div class="modal-content">
+            <span class="close-btn-policia">&times;</span>
+            <iframe id="form-iframe-policia" src="policia-form.html" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Modal de Autenticação -->
+    <div id="auth-modal" class="auth-modal-overlay">
+        <div class="auth-modal-content">
+            <span class="close-button">&times;</span>
+            
+            <!-- Formulário de Login -->
+            <form id="login-form" class="auth-form">
+                <h2>Área do Governo</h2>
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit">Entrar</button>
+
+            </form>
+
+            <!-- Formulário de Criação de Conta -->
+            <form id="register-form" class="auth-form">
+                <h2>Criar Conta</h2>
+                <div class="form-group">
+                    <label for="register-name">Nome Completo</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Senha</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <button type="submit">Criar Conta</button>
+                <p class="toggle-form">Já tem uma conta? <a id="show-login">Faça o login</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

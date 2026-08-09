@@ -1,0 +1,48 @@
+:root {
+    --cor-primaria: #9333ea; /* Roxo */
+    --cor-primaria-hover: #a855f7;
+    --cor-secundaria: #1f2937; /* Cinza escuro para cards */
+    --cor-fundo: #111827; /* Fundo principal */
+    --cor-texto: #d1d5db; /* Cinza claro */
+    --cor-titulo: #f9fafb; /* Branco */
+    --cor-sucesso: #10b981; /* Verde */
+    --cor-alerta: #f59e0b; /* Amarelo */
+    --cor-borda: #374151;
+}
+
+/* Estilos dos Botões do Header */
+.btn-header {
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-filled {
+    background-color: var(--cor-primaria);
+    color: var(--cor-titulo);
+    border: 2px solid var(--cor-primaria);
+}
+
+.btn-filled:hover {
+    background-color: var(--cor-primaria-hover);
+    border-color: var(--cor-primaria-hover);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+}
+
+.btn-outline:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-titulo);
+    transform: translateY(-2px);
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal da Transparência - Riviera RP</title>
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/transparencia.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> <!-- Substituir pelo seu kit -->
+</head>
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="/src/assets/logo.png" alt="Logo Riviera" height="90">
+            <div>
+                <h1>GOVERNO DA CIDADE</h1>
+                <h2>RIVIERA</h2>
+                <p>TRABALHANDO POR TODOS, TODOS OS DIAS.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li class="dropdown">
+                            <a href="#" id="governo-button">GOVERNO <i class="fa-solid fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-landmark"></i> Administração</h4>
+                                    <ul>
+                                        <li><a href="#">Prefeito</a></li>
+                                        <li><a href="#">Vice-Prefeito</a></li>
+                                        <li><a href="#">Secretarias</a></li>
+                                        <li><a href="#">Organograma</a></li>
+                                        <li><a href="#">Agenda Oficial</a></li>
+                                        <li><a href="#">Plano de Governo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-gavel"></i> Legislação</h4>
+                                    <ul>
+                                        <li><a href="constituicao.html" id="constituicao-btn">Constituição da Cidade</a></li>
+                                        <li><a href="codigo-penal.html">Código Penal</a></li>
+                                        <li><a href="#">Código Civil</a></li>
+                                        <li><a href="#">Código Processual Penal</a></li>
+                                        <li><a href="codigo-de-transito.html">Código de Trânsito</a></li>
+                                        <li><a href="calculadora-penal.html">Calculadora Unificada</a></li>
+                                        <li><a href="leis-municipais.html">Leis Municipais</a></li>
+                                        <li><a href="#">Decretos</a></li>
+                                        <li><a href="#">Portarias</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-building-columns"></i> Órgãos Públicos</h4>
+                                    <ul>
+                                        <li><a href="#">Polícia Militar</a></li>
+                                        <li><a href="#">Polícia Civil</a></li>
+                                        <li><a href="#">Tribunal de Justiça</a></li>
+                                        <li><a href="#">Ministério Público</a></li>
+                                        <li><a href="#">Hospital Municipal</a></li>
+                                        <li><a href="#">Corpo de Bombeiros</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    <li><a href="cidadao.html">CIDADÃO</a></li>
+                    <li><a href="transparencia.html" class="active">TRANSPARÊNCIA</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="player-count">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="player-count-span">--/--</span>
+                </div>
+                <a href="#" class="btn btn-outline">SERVIDOR DA CIDADE</a>
+                <a href="#" class="btn btn-primary btn-vip">LOJA VIP</a>
+                <a href="#" id="area-governo-btn" class="btn btn-primary">ÁREA DO GOVERNO</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="transparencia-page">
+        <!-- O conteúdo da página será adicionado aqui -->
+        <section id="comunicados" class="transparencia-section">
+            <h2 class="section-title">📢 Comunicados Oficiais</h2>
+            <!-- Conteúdo dos comunicados -->
+            <div class="comunicados-grid">
+                <!-- Os comunicados serão carregados dinamicamente aqui -->
+            </div>
+        </section>
+
+        <section id="equipe" class="transparencia-section">
+            <h2 class="section-title">👥 Equipe da Cidade</h2>
+            <!-- Conteúdo da equipe -->
+            <div class="equipe-grid">
+                <!-- Membros da equipe serão carregados dinamicamente aqui -->
+            </div>
+        </section>
+
+        <section id="documentos" class="transparencia-section">
+            <h2 class="section-title">📄 Documentos Públicos</h2>
+            <!-- Conteúdo dos documentos -->
+            <div class="documentos-lista">
+                <div class="documento-item">
+                    <div class="documento-info">
+                        <h4>Constituição da Cidade de Riviera</h4>
+                        <p>A lei fundamental que rege a cidade, estabelecendo a estrutura do governo e os direitos dos cidadãos.</p>
+                        <span class="data-publicacao">Publicado em: 09/08/2026</span>
+                    </div>
+                    <a href="constituicao.html" id="btn-constituicao" class="btn btn-secondary" target="_blank">Visualizar</a>
+                </div>
+                <div class="documento-item">
+                    <div class="documento-info">
+                        <h4>Código Penal</h4>
+                        <p>Define os crimes e as respectivas punições aplicáveis no território da cidade.</p>
+                        <span class="data-publicacao">Publicado em: 09/08/2026</span>
+                    </div>
+                    <a href="codigo-penal.html" id="btn-codigo-penal" class="btn btn-secondary" target="_blank">Visualizar</a>
+                </div>
+                <!-- Adicionar mais documentos aqui -->
+            </div>
+        </section>
+
+
+        <section id="processos-julgados-section" class="transparencia-section">
+            <h2 class="section-title">⚖️ Processos Julgados</h2>
+            <div class="processos-summary">
+                <p>Total de Processos Julgados: <span class="total-count">2</span></p>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nº do Processo</th>
+                            <th>Nome do Cidadão</th>
+                            <th>Advogado Responsável</th>
+                            <th>Data</th>
+                            <th>Juiz da Comarca</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-001</td>
+                            <td>John Doe</td>
+                            <td>Saul Goodman</td>
+                            <td>11/07/2024</td>
+                            <td>Atlas CARTER</td>
+                        </tr>
+                        <tr>
+                            <td>2024-002</td>
+                            <td>Jane Smith</td>
+                            <td>Kim Wexler</td>
+                            <td>10/07/2024</td>
+                            <td>Atlas CARTER</td>
+                        </tr>
+                        <!-- Adicionar mais processos aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="suporte" class="transparencia-section">
+            <h2 class="section-title">🛠️ Suporte</h2>
+            <!-- Conteúdo do suporte -->
+            <div class="suporte-grid">
+                <a href="#" id="abrir-suporte-modal" class="card-suporte">
+                    <i class="fa-solid fa-ticket"></i>
+                    <h4>Abrir Chamado</h4>
+                    <p>Para problemas técnicos ou dúvidas gerais.</p>
+                </a>
+                 <a href="#" id="abrir-bug-modal" class="card-suporte">
+                    <i class="fa-solid fa-bug"></i>
+                    <h4>Reportar Bug</h4>
+                    <p>Encontrou um erro? Ajude-nos a melhorar.</p>
+                </a>
+                <a href="#" id="abrir-sugestao-modal" class="card-suporte">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h4>Enviar Sugestão</h4>
+                    <p>Ideias para tornar a cidade ainda melhor.</p>
+                </a>
+                <a href="#" class="card-suporte">
+                    <i class="fa-solid fa-user-secret"></i>
+                    <h4>Denunciar Jogador</h4>
+                    <p>Relate quebras de regras de forma confidencial.</p>
+                </a>
+            </div>
+        </section>
+        <section id="agradecimentos" class="transparencia-section">
+            <h2 class="section-title">💜 Quem faz a Riviera acontecer</h2>
+            <p class="agradecimento-intro">Riviera RP é um projeto desenvolvido por uma equipe apaixonada por Roleplay. Aqui você encontra os responsáveis pela criação, desenvolvimento e administração da cidade, garantindo transparência e reconhecimento pelo trabalho realizado.</p>
+            <div class="agradecimento-grid">
+                <div class="agradecimento-card principal">
+                    <h3>👑 Diovane</h3>
+                    <p>Fundador</p>
+                </div>
+                <div class="agradecimento-card principal">
+                    <h3>💻 Atlas Carter</h3>
+                    <p>Desenvolvedor Web</p>
+                </div>
+            </div>
+            <div class="patrocinio-container agradecimento-card principal">
+                <h4>Patrocínio</h4>
+                <div class="patrocinio-lista">
+                    <span>Fernandes</span>
+                    <span>Deboxado</span>
+                    <span>Walace</span>
+                    <span>Flowp</span>
+                    <span>Atlas Carter</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Riviera RP. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/transparencia.js"></script>
+
+    <!-- Modal de Suporte -->
+    <div id="suporte-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-suporte-modal">&times;</span>
+            <h2>Abrir Chamado de Suporte</h2>
+            <p>Preencha os campos abaixo para abrir um novo ticket.</p>
+            <form id="suporte-form">
+                <div class="form-group">
+                    <label for="ticket-type">Tipo de Chamado</label>
+                    <select id="ticket-type" name="ticket-type" required>
+                            <option value="" disabled selected>Selecione uma opção...</option>
+                            <option value="Duvidas">Duvidas</option>
+                            <option value="Doações">Doações</option>
+                            <option value="Denuncias">Denuncias</option>
+                            <option value="Suporte">Suporte</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="ticket-message">Sua Mensagem</label>
+                    <textarea id="ticket-message" name="ticket-message" rows="5" required placeholder="Descreva seu problema ou dúvida em detalhes..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Chamado</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Reportar Bug -->
+    <div id="bug-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-bug-modal">&times;</span>
+            <h2>Reportar um Bug</h2>
+            <p>Por favor, descreva o bug em detalhes para que possamos corrigi-lo o mais rápido possível.</p>
+            <form id="bug-form">
+                <div class="form-group">
+                    <label for="bug-message">Descrição do Bug</label>
+                    <textarea id="bug-message" name="bug-message" rows="8" required placeholder="Ex: Ao tentar abrir o inventário com a tecla 'I', o jogo fecha inesperadamente. Isso acontece perto da praça central."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Relatório</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Enviar Sugestão -->
+    <div id="sugestao-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-sugestao-modal">&times;</span>
+            <h2>Enviar uma Sugestão</h2>
+            <p>Tem uma ideia para melhorar o Riviera? Adoraríamos ouvi-la!</p>
+            <form id="sugestao-form">
+                <div class="form-group">
+                    <label for="sugestao-message">Sua Sugestão</label>
+                    <textarea id="sugestao-message" name="sugestao-message" rows="8" required placeholder="Descreva sua ideia em detalhes. Quanto mais informações, melhor!"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Sugestão</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

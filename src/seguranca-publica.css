@@ -1,0 +1,8 @@
+/* Estilos para a página do Portal de Segurança Pública */
+
+/* Importa os estilos gerais das leis para manter a consistência */
+@import url('leis-municipais.css');
+
+/* Se houver necessidade de estilos específicos para a página de segurança,
+   eles podem ser adicionados aqui. Por enquanto, a importação acima
+   deve ser suficiente para aplicar o layout de cards. */

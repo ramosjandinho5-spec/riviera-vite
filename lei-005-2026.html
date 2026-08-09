@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <title>Lei Complementar nº 005/2026 - Riviera</title>
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/leis.css">
+
+    <style>
+        /* Estilos críticos para evitar o flash de conteúdo */
+        html { background-color: #111; }
+        body.preloading { opacity: 0; }
+    </style>
+</head>
+<body class="lei-page preloading">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="/src/assets/logo.png" alt="Logo Riviera" height="90">
+            <div>
+                <h1>GOVERNO DA CIDADE</h1>
+                <h2>RIVIERA</h2>
+                <p>TRABALHANDO POR TODOS, TODOS OS DIAS.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li class="dropdown">
+                            <a href="#" id="governo-button">GOVERNO <i class="fa-solid fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-landmark"></i> Administração</h4>
+                                    <ul>
+                                        <li><a href="#">Prefeito</a></li>
+                                        <li><a href="#">Vice-Prefeito</a></li>
+                                        <li><a href="#">Secretarias</a></li>
+                                        <li><a href="#">Organograma</a></li>
+                                        <li><a href="#">Agenda Oficial</a></li>
+                                        <li><a href="#">Plano de Governo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-gavel"></i> Legislação</h4>
+                                    <ul>
+                                        <li><a href="constituicao.html" id="constituicao-btn">Constituição da Cidade</a></li>
+                                        <li><a href="codigo-penal.html">Código Penal</a></li>
+                                        <li><a href="#">Código Civil</a></li>
+                                        <li><a href="#">Código Processual Penal</a></li>
+                                        <li><a href="codigo-de-transito.html">Código de Trânsito</a></li>
+                                        <li><a href="calculadora-penal.html">Calculadora Unificada</a></li>
+                                        <li><a href="leis-municipais.html">Leis Municipais</a></li>
+                                        <li><a href="#">Decretos</a></li>
+                                        <li><a href="#">Portarias</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-building-columns"></i> Órgãos Públicos</h4>
+                                    <ul>
+                                        <li><a href="#">Polícia Militar</a></li>
+                                        <li><a href="#">Polícia Civil</a></li>
+                                        <li><a href="#">Tribunal de Justiça</a></li>
+                                        <li><a href="#">Ministério Público</a></li>
+                                        <li><a href="#">Hospital Municipal</a></li>
+                                        <li><a href="#">Corpo de Bombeiros</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    <li><a href="cidadao.html">CIDADÃO</a></li>
+                    <li><a href="#">TRANSPARÊNCIA</a></li>
+                    <li><a href="#">CONTATO</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="player-count">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="player-count-span">--/--</span>
+                </div>
+                <a href="#" class="btn btn-outline">SERVIDOR DA CIDADE</a>
+                <a href="#" class="btn btn-primary">LOJA VIP</a>
+                <a href="#" id="area-governo-btn" class="btn btn-primary">ÁREA DO GOVERNO</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="lei-container">
+            <a href="seguranca-publica.html" class="btn-retornar"><i class="fa-solid fa-arrow-left"></i> Voltar para Leis de Segurança Pública</a>
+            <article class="conteudo-lei">
+                <header class="banner-lei">
+                    <div class="lei-identificacao">
+                        <h2>LEI COMPLEMENTAR Nº 005/2026</h2>
+                    </div>
+                    <div class="lei-titulo-descricao">
+                        <h1>LEI DA SEGURANÇA PÚBLICA DO MUNICÍPIO DE RIVIERA</h1>
+                        <p class="lei-descricao">Dispõe sobre a organização do Sistema Municipal de Segurança Pública, estabelece as competências dos órgãos de segurança e dá outras providências.</p>
+                    </div>
+                </header>
+
+                <section>
+                    <p><strong>O PREFEITO DA CIDADE DE RIVIERA</strong></p>
+                    <p>Faço saber que o Congresso Federal aprovou e eu sanciono a seguinte Lei Complementar:</p>
+                </section>
+
+                <section>
+                    <h3>CAPÍTULO I</h3>
+                    <h4>DAS DISPOSIÇÕES GERAIS</h4>
+                    <p><strong>Art. 1º</strong> A Segurança Pública é dever do Município e será exercida pelos órgãos competentes, com a finalidade de preservar a ordem pública, proteger os cidadãos e garantir o cumprimento das leis.</p>
+                    <p><strong>Art. 2º</strong> Integram o Sistema Municipal de Segurança Pública:</p>
+                    <ul>
+                        <li>I – Polícia Militar;</li>
+                        <li>II – Polícia Civil;</li>
+                        <li>III – Corpo de Bombeiros;</li>
+                        <li>IV – Guarda Municipal;</li>
+                        <li>V – Secretaria de Segurança Pública.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>CAPÍTULO II</h3>
+                    <h4>DAS COMPETÊNCIAS</h4>
+                    <p><strong>Art. 3º</strong> Compete à Polícia Militar realizar o policiamento ostensivo, preservar a ordem pública e atuar na prevenção e repressão imediata das infrações penais.</p>
+                    <p><strong>Art. 4º</strong> Compete à Polícia Civil exercer as funções de polícia judiciária, realizar investigações e apurar infrações penais.</p>
+                    <p><strong>Art. 5º</strong> Compete ao Corpo de Bombeiros atuar na prevenção e resposta a incêndios, salvamentos, resgates e demais ocorrências de proteção civil.</p>
+                    <p><strong>Art. 6º</strong> Compete à Guarda Municipal proteger os bens, serviços e instalações públicas municipais, conforme legislação específica.</p>
+                </section>
+
+                <section>
+                    <h3>CAPÍTULO III</h3>
+                    <h4>DA SECRETARIA DE SEGURANÇA PÚBLICA</h4>
+                    <p><strong>Art. 7º</strong> A Secretaria de Segurança Pública será responsável pelo planejamento, coordenação e integração das políticas de segurança do Município.</p>
+                    <p><strong>Art. 8º</strong> O Secretário de Segurança Pública não poderá nomear, exonerar ou destituir os comandantes das forças de segurança, podendo apenas encaminhar indicação fundamentada ao Poder Executivo, conforme previsto na legislação municipal.</p>
+                </section>
+
+                <section>
+                    <h3>CAPÍTULO IV</h3>
+                    <h4>DAS DISPOSIÇÕES FINAIS</h4>
+                    <p><strong>Art. 9º</strong> Cada órgão integrante do Sistema Municipal de Segurança Pública possuirá regulamento interno próprio, desde que respeite a Constituição da Cidade e as leis municipais.</p>
+                    <p><strong>Art. 10</strong> Esta Lei Complementar entra em vigor na data de sua publicação.</p>
+                </section>
+
+                <section>
+                    <p>Palácio Municipal de Riviera</p>
+                    <p>Lei Complementar nº 005/2026</p>
+                    <p>Lei da Segurança Pública do Município de Riviera</p>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

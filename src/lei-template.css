@@ -1,0 +1,101 @@
+/* Estilos para o template de página de lei */
+
+.lei-page .lei-container {
+    max-width: 1000px; /* Aumentado para melhor acomodar o layout */
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    position: relative;
+}
+
+.btn-retornar {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color 0.3s;
+}
+
+.btn-retornar:hover {
+    color: #fff;
+}
+
+.btn-retornar i {
+    margin-right: 0.5rem;
+}
+
+.lei-page .banner-lei {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.lei-identificacao {
+    flex: 0 0 200px; /* Base de 200px, sem crescer ou encolher */
+    border-right: 1px solid var(--border-color);
+    padding-right: 2rem;
+    align-self: stretch; /* Faz a borda esticar */
+    display: flex;
+    align-items: center;
+}
+
+.lei-identificacao h2 {
+    font-size: 1.5rem;
+    color: #ccc;
+    font-weight: bold;
+}
+
+.lei-titulo-descricao h1 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.lei-titulo-descricao .lei-descricao {
+    font-size: 1rem;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.conteudo-lei section {
+    margin-bottom: 2.5rem;
+}
+
+.conteudo-lei h3 {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 0.5rem;
+}
+
+.conteudo-lei h4 {
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.conteudo-lei p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+.conteudo-lei ul {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+    color: #ccc;
+}
+
+.conteudo-lei ul li {
+    margin-bottom: 0.5rem;
+}

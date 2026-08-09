@@ -1,0 +1,42 @@
+/* Estilos para a página do Código de Processo Penal */
+.codigo-processo-penal-page .hero-banner-leis {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('/src/assets/banner-constituicao.png');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.codigo-processo-penal-page .hero-content h1 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.codigo-processo-penal-page .hero-content p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.codigo-processo-penal-page .leis-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.codigo-processo-penal-page .filtros-lateral {
+    flex: 0 0 250px;
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    height: fit-content;
+}
+
+.codigo-processo-penal-page .lista-leis {
+    flex: 1;
+}

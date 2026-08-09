@@ -1,0 +1,76 @@
+/* Layout principal da página de leis */
+.leis-container {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Coluna lateral de 280px e o resto para o conteúdo */
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Estilos para a seção de filtros na lateral */
+.filtros-lateral h3 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.filtro-grupo {
+    margin-bottom: 1.5rem;
+}
+
+.filtro-grupo label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.filtro-grupo input {
+    width: 100%;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.75rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+/* Contêiner para a lista de leis/crimes */
+.lista-leis {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+/* Tabela de crimes/infrações */
+.crime-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+.crime-table th, .crime-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.crime-table th {
+    background-color: #1f2937;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.crime-table tbody tr:hover {
+    background-color: #1f2937;
+}
+
+/* Largura das colunas da tabela de trânsito */
+.crime-table td:nth-child(1) { width: 8%; } /* Artigo */
+.crime-table td:nth-child(2) { width: 20%; } /* Infração */
+.crime-table td:nth-child(3) { width: 8%; } /* Multa */
+.crime-table td:nth-child(4) { width: 8%; } /* Pena */
+.crime-table td:nth-child(5) { width: 56%; } /* Observações */

@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <title>Código Penal - Riviera</title>
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/header.css">
+    <link rel="stylesheet" href="/src/codigo-penal.css">
+
+    <style>
+        /* Estilos críticos para evitar o flash de conteúdo */
+        html { background-color: #111; }
+        body.preloading { opacity: 0; }
+    </style>
+</head>
+<body class="codigo-penal-page preloading">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="/src/assets/logo.png" alt="Logo Riviera" height="90">
+            <div>
+                <h1>GOVERNO DA CIDADE</h1>
+                <h2>RIVIERA</h2>
+                <p>TRABALHANDO POR TODOS, TODOS OS DIAS.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li class="dropdown">
+                            <a href="#" id="governo-button">GOVERNO <i class="fa-solid fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-landmark"></i> Administração</h4>
+                                    <ul>
+                                        <li><a href="#">Prefeito</a></li>
+                                        <li><a href="#">Vice-Prefeito</a></li>
+                                        <li><a href="#">Secretarias</a></li>
+                                        <li><a href="#">Organograma</a></li>
+                                        <li><a href="#">Agenda Oficial</a></li>
+                                        <li><a href="#">Plano de Governo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-gavel"></i> Legislação</h4>
+                                    <ul>
+                                        <li><a href="constituicao.html" id="constituicao-btn">Constituição da Cidade</a></li>
+                                        <li><a href="codigo-penal.html" class="active">Código Penal</a></li>
+                                                                                <li><a href="codigo-civil.html">Código Civil</a></li>
+                                        <li><a href="#">Código Processual Penal</a></li>
+                                        <li><a href="codigo-de-transito.html">Código de Trânsito</a></li>
+                                        <li><a href="calculadora-penal.html">Calculadora Unificada</a></li>
+                                        <li><a href="leis-municipais.html">Leis Municipais</a></li>
+                                        <li><a href="#">Decretos</a></li>
+                                        <li><a href="#">Portarias</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-building-columns"></i> Órgãos Públicos</h4>
+                                    <ul>
+                                        <li><a href="#">Polícia Militar</a></li>
+                                        <li><a href="#">Polícia Civil</a></li>
+                                        <li><a href="#">Tribunal de Justiça</a></li>
+                                        <li><a href="#">Ministério Público</a></li>
+                                        <li><a href="#">Hospital Municipal</a></li>
+                                        <li><a href="#">Corpo de Bombeiros</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    <li><a href="cidadao.html">CIDADÃO</a></li>
+                    <li><a href="#">TRANSPARÊNCIA</a></li>
+                    <li><a href="#">CONTATO</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="player-count">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="player-count-span">--/--</span>
+                </div>
+                <a href="#" class="btn btn-outline">SERVIDOR DA CIDADE</a>
+                <a href="#" class="btn btn-primary btn-vip">LOJA VIP</a>
+                <a href="#" id="area-governo-btn" class="btn btn-primary">ÁREA DO GOVERNO</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-banner-leis">
+            <div class="hero-content">
+                <h1>Código Penal</h1>
+                <p>Conjunto de normas que definem os crimes e estabelecem as respectivas penas, garantindo a ordem e a segurança na Cidade de Riviera.</p>
+            </div>
+        </section>
+
+        <div class="leis-container">
+            <aside class="filtros-lateral">
+                <h3>Filtros</h3>
+                <div class="filtro-grupo">
+                    <label for="search-artigo">Pesquisar por artigo</label>
+                    <input type="text" id="search-artigo" placeholder="Nº do artigo...">
+                </div>
+                <div class="filtro-grupo">
+                    <label for="search-tipificacao">Pesquisar por tipificação</label>
+                    <input type="text" id="search-tipificacao" placeholder="Nome do crime...">
+                </div>
+
+                <h3 class="categorias-title">Categorias</h3>
+                <nav class="nav-categorias">
+                    <ul>
+                        <li><a href="#crimes-vida">Crimes Contra a Vida</a></li>
+                        <li><a href="#crimes-pessoa">Crimes Contra a Pessoa</a></li>
+                        <li><a href="#crimes-honra">Crimes Contra a Honra</a></li>
+                        <li><a href="#crimes-liberdade-individual">Crimes Contra a Liberdade Individual</a></li>
+                        <li><a href="#crimes-patrimonio">Crimes Contra o Patrimônio</a></li>
+                        <li><a href="#crimes-liberdade-sexual">Crimes Contra a Liberdade Sexual</a></li>
+                        <li><a href="#crimes-paz-publica">Crimes Contra a Paz Pública</a></li>
+                        <li><a href="#crimes-administracao-publica">Crimes Contra a Administração Pública</a></li>
+                        <li><a href="#crimes-entorpecentes">Crimes Relacionados a Entorpecentes</a></li>
+                        <li><a href="#crimes-transito">Crimes de Trânsito e Veículos</a></li>
+                        <li><a href="#crimes-armas">Crimes Envolvendo Armas</a></li>
+                        <li><a href="#crimes-justica">Crimes Contra a Justiça</a></li>
+                        <li><a href="#crimes-organizados">Crimes Organizados e Financeiros</a></li>
+                        <li><a href="#disposicoes-gerais">Disposições Penais Gerais</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <section class="lista-leis">
+
+                <section id="crimes-vida" class="crime-section">
+                    <h2>Crimes Contra a Vida</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th class="col-artigo">Artigo</th>
+                                <th class="col-tipificacao">Tipificação Penal</th>
+                                <th class="col-pena">Pena</th>
+                                <th class="col-multa">Multa</th>
+                                <th class="col-fianca">Fiançável</th>
+                                <th class="col-obs">Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 121</td>
+                                <td>Homicídio</td>
+                                <td>30</td>
+                                <td>50.000</td>
+                                <td>-</td>
+                                <td>Matar pessoa.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 121 § II</td>
+                                <td>Homicídio Qualificado</td>
+                                <td>30</td>
+                                <td>60.000</td>
+                                <td>-</td>
+                                <td>Matar pessoa por motivos fúteis, torpes ou através de meios cruéis.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 121 § III</td>
+                                <td>Homicídio Culposo</td>
+                                <td>30</td>
+                                <td>60.000</td>
+                                <td>120.000</td>
+                                <td>Matar pessoa sem ter intenção.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 122</td>
+                                <td>Induzir ao Suicídio</td>
+                                <td>50</td>
+                                <td>200.000</td>
+                                <td>-</td>
+                                <td>Induzir pessoa ou estimular pessoa a suicidar-se.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="crimes-pessoa" class="crime-section">
+                    <h2>Crimes Contra a Pessoa</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Multa</th>
+                                <th>Fiançável</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 129</td>
+                                <td>Lesão Corporal</td>
+                                <td>10</td>
+                                <td>25.000</td>
+                                <td>40.000</td>
+                                <td>Agredir qualquer pessoa mediante violência física.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 129 § III</td>
+                                <td>Lesão Corporal Seguida de Morte</td>
+                                <td>20</td>
+                                <td>50.000</td>
+                                <td>-</td>
+                                <td>Se da lesão resultar morte.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 129 § IX</td>
+                                <td>Violência Doméstica</td>
+                                <td>10</td>
+                                <td>20.000</td>
+                                <td>-</td>
+                                <td>Lei 11.340 - Maria da Penha.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 135</td>
+                                <td>Omissão de Socorro</td>
+                                <td>15</td>
+                                <td>35.000</td>
+                                <td>60.000</td>
+                                <td>Omitir-se em prestar apoio ou auxílio quando o tem por dever legal ou quando causar o dano.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 137</td>
+                                <td>Rixa</td>
+                                <td>10</td>
+                                <td>15.000</td>
+                                <td>40.000</td>
+                                <td>Briga generalisada.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="crimes-entorpecentes" class="crime-section">
+                    <h2>Crimes Relacionados a Entorpecentes</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Multa</th>
+                                <th>Fiançável</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 33</td>
+                                <td>Tráfico de Drogas</td>
+                                <td>25</td>
+                                <td>50.000</td>
+                                <td>-</td>
+                                <td>Vender, comprar, produzir, guardar ou entregar a consumo matéria-prima ou substância entorpecente.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 28</td>
+                                <td>Porte de Drogas para Consumo</td>
+                                <td>5</td>
+                                <td>5.000</td>
+                                <td>10.000</td>
+                                <td>Adquirir, guardar ou transportar drogas para consumo pessoal.</td>
+                            </tr>
+                             <tr>
+                                <td>ART. 35</td>
+                                <td>Associação para o Tráfico</td>
+                                <td>30</td>
+                                <td>60.000</td>
+                                <td>-</td>
+                                <td>Associarem-se duas ou mais pessoas para o fim de praticar, reiteradamente ou não, qualquer dos crimes previstos no Art. 33.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="crimes-honra" class="crime-section">
+                    <h2>Crimes Contra a Honra</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Multa</th>
+                                <th>Fiançável</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 138</td>
+                                <td>Calúnia</td>
+                                <td>8</td>
+                                <td>20.000</td>
+                                <td>40.000</td>
+                                <td>Imputar a alguém fato criminoso.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 139</td>
+                                <td>Difamação</td>
+                                <td>8</td>
+                                <td>20.000</td>
+                                <td>40.000</td>
+                                <td>Imputar a alguém fato ofensivo à reputação.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 140</td>
+                                <td>Injúria</td>
+                                <td>8</td>
+                                <td>20.000</td>
+                                <td>40.000</td>
+                                <td>Qualquer xingamento ou adjetivo pejorativo.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="crimes-liberdade-individual" class="crime-section">
+                    <h2>Crimes Contra a Liberdade Individual</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Multa</th>
+                                <th>Fiançável</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 147</td>
+                                <td>Ameaça</td>
+                                <td>5</td>
+                                <td>25.000</td>
+                                <td>50.000</td>
+                                <td>Através de atos, gestos e palavras.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 148</td>
+                                <td>Sequestro ou Cárcere Privado</td>
+                                <td>35</td>
+                                <td>40.000</td>
+                                <td>-</td>
+                                <td>Privar alguém de sua liberdade mediante violência ou grave ameaça (uso de algemas, cordas ou capuz).</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 150</td>
+                                <td>Violação de Domicílio</td>
+                                <td>15</td>
+                                <td>20.000</td>
+                                <td>60.000</td>
+                                <td>Adentrar residência alheia sem autorização.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="crimes-patrimonio" class="crime-section">
+                    <h2>Crimes Contra o Patrimônio</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Multa</th>
+                                <th>Fiançável</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 155</td>
+                                <td>Furto</td>
+                                <td>5</td>
+                                <td>8.000</td>
+                                <td>35.000</td>
+                                <td>Sem o emprego de força ou grave ameaça à pessoa.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 157</td>
+                                <td>Roubo</td>
+                                <td>8</td>
+                                <td>10.000</td>
+                                <td>60.000</td>
+                                <td>De pertences, veículos, caixas registradoras e comércio em geral, residências.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 157 § II</td>
+                                <td>Roubo Qualificado</td>
+                                <td>15</td>
+                                <td>35.000</td>
+                                <td>75.000</td>
+                                <td>De bancos, transporte de valores, eletrônicos, minérios e jóias.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 157 § III</td>
+                                <td>Latrocínio</td>
+                                <td>25</td>
+                                <td>35.000</td>
+                                <td>-</td>
+                                <td>Roubo seguido de morte.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 163</td>
+                                <td>Dano ao Patrimônio Particular</td>
+                                <td>5</td>
+                                <td>10.000</td>
+                                <td>30.000</td>
+                                <td>Destruir ou danificar qualquer patrimônio particular ou privado.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 163 § II</td>
+                                <td>Dano ao Patrimônio Público</td>
+                                <td>2</td>
+                                <td>5.000</td>
+                                <td>30.000</td>
+                                <td>Destruir ou danificar qualquer patrimônio público.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 171</td>
+                                <td>Estelionato</td>
+                                <td>10</td>
+                                <td>20.000</td>
+                                <td>-</td>
+                                <td>Obter vantagem indevida mediante fraude.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 180</td>
+                                <td>Receptação</td>
+                                <td>10</td>
+                                <td>20.000</td>
+                                <td>45.000</td>
+                                <td>Comprar, transportar, ocultar e receber objeto que sabe ser produto de crime.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 184</td>
+                                <td>Violação de Direito Autoral</td>
+                                <td>8</td>
+                                <td>15.000</td>
+                                <td>25.000</td>
+                                <td>Usar de maneira indevida propriedade autoral de outra pessoa.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 168</td>
+                                <td>Apropriação Indébita</td>
+                                <td>12</td>
+                                <td>25.000</td>
+                                <td>50.000</td>
+                                <td>Apropriar-se de coisa alheia móvel, de que tem a posse ou a detenção.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 169</td>
+                                <td>Extorsão</td>
+                                <td>20</td>
+                                <td>40.000</td>
+                                <td>-</td>
+                                <td>Constranger alguém, mediante violência ou grave ameaça, com o intuito de obter para si ou para outrem indevida vantagem econômica.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="crimes-liberdade-sexual" class="crime-section">
+                    <h2>Crimes Contra a Liberdade Sexual</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Multa</th>
+                                <th>Fiançável</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 213</td>
+                                <td>Estupro</td>
+                                <td class="pena-ban">BAN</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>Constranger alguém mediante violência ou grave ameaça a conjunção carnal ou ato libidinoso.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 217-A</td>
+                                <td>Estupro de Vulnerável</td>
+                                <td class="pena-ban">BAN</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>Vítima menor de 14 anos, deficientes mentais ou em alto estado de embriaguez.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 216</td>
+                                <td>Assédio Sexual</td>
+                                <td class="pena-ban">BAN</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>Constranger alguém a fazer algo mediante favor sexual.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 233</td>
+                                <td>Ato Obsceno</td>
+                                <td>15</td>
+                                <td>30.000</td>
+                                <td>100.000</td>
+                                <td>Através de imagens, gestos, nudes, atos, palavras, fazer necessidades fisiológicas em local público.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="crimes-paz-publica" class="crime-section">
+                    <h2>Crimes Contra a Paz Pública</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Multa</th>
+                                <th>Fiançável</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 287</td>
+                                <td>Apologia ao Crime</td>
+                                <td>5</td>
+                                <td>20.000</td>
+                                <td>40.000</td>
+                                <td>Através de símbolos, imagens, músicas, palavras, expressões e vestimentas.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 287 § II</td>
+                                <td>Utilização de Material Ilegal</td>
+                                <td>6</td>
+                                <td>20.000</td>
+                                <td>50.000</td>
+                                <td>Simulacros, coletes balísticos, acessórios policiais, itens militares, máscaras e peças de fardamentos.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 288</td>
+                                <td>Formação de Quadrilha</td>
+                                <td>35</td>
+                                <td>40.000</td>
+                                <td>-</td>
+                                <td>Três ou mais pessoas (configura em um único crime).</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 307</td>
+                                <td>Falsa Identidade</td>
+                                <td>10</td>
+                                <td>15.000</td>
+                                <td>50.000</td>
+                                <td>Se apresentar como pessoa, diversa da que é.</td>
+                            </tr>
+                            <tr>
+                                <td>LEI 3.688</td>
+                                <td>Perturbação do Sossego</td>
+                                <td>4</td>
+                                <td>10.000</td>
+                                <td>20.000</td>
+                                <td>Perturbar o trabalho ou o sossego alheio.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="crimes-administracao-publica" class="crime-section">
+                    <h2>Crimes Contra a Administração Pública</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Multa</th>
+                                <th>Fiançável</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 312</td>
+                                <td>Peculato</td>
+                                <td>30</td>
+                                <td>40.000</td>
+                                <td>70.000</td>
+                                <td>Furto praticado por funcionário público no exercício em razão da função.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 316</td>
+                                <td>Concussão</td>
+                                <td>30</td>
+                                <td>40.000</td>
+                                <td>70.000</td>
+                                <td>Exigir ou solicitar vantagem indevida no exercício da função.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 317</td>
+                                <td>Corrupção</td>
+                                <td>30</td>
+                                <td>30.000</td>
+                                <td>250.000</td>
+                                <td>Oferecer a funcionário público vantagem indevida.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 319</td>
+                                <td>Prevaricação</td>
+                                <td>20</td>
+                                <td>40.000</td>
+                                <td>60.000</td>
+                                <td>Ter ciência do fato e não tomar providências para benefícios próprios ou prejudicar terceiros.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 324</td>
+                                <td>Exercício Funcional Ilegal</td>
+                                <td>20</td>
+                                <td>40.000</td>
+                                <td>60.000</td>
+                                <td>Se apresentar como funcionário público sem o ser ou estar fora do exercício.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 329</td>
+                                <td>Resistência</td>
+                                <td>4</td>
+                                <td>8.000</td>
+                                <td>50.000</td>
+                                <td>Opor-se a execução de ato legal mediante violência ou ameaça ao funcionário público competente.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 330</td>
+                                <td>Desobediência</td>
+                                <td>4</td>
+                                <td>8.000</td>
+                                <td>40.000</td>
+                                <td>Desobedecer ordem legal do funcionário público competente.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 331</td>
+                                <td>Desacato</td>
+                                <td>6</td>
+                                <td>30.000</td>
+                                <td>80.000</td>
+                                <td>Desacatar funcionário público no exercício da função.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="crimes-transito" class="crime-section">
+                    <h2>Crimes de Trânsito e Veículos</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Multa</th>
+                                <th>Fiançável</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 308</td>
+                                <td>Direção Perigosa / Racha</td>
+                                <td>10</td>
+                                <td>15.000</td>
+                                <td>-</td>
+                                <td>Apreensão do veículo + agravante se houver feridos ou morte.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 306</td>
+                                <td>Condução sob efeito de álcool</td>
+                                <td>6</td>
+                                <td>10.000</td>
+                                <td>30.000</td>
+                                <td>Suspensão da CNH RP.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 302</td>
+                                <td>Atropelamento Culposo</td>
+                                <td>8</td>
+                                <td>12.000</td>
+                                <td>-</td>
+                                <td>Se resultar em morte, converter para homicídio culposo.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 330</td>
+                                <td>Fuga de Abordagem</td>
+                                <td>6</td>
+                                <td>8.000</td>
+                                <td>-</td>
+                                <td>Agravante se houver direção perigosa ou colisão.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 195</td>
+                                <td>Desobediência à Sinalização</td>
+                                <td>2</td>
+                                <td>3.000</td>
+                                <td>8.000</td>
+                                <td>Pode ser cumulativo com outros crimes.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 311</td>
+                                <td>Veículo Clonado</td>
+                                <td>15</td>
+                                <td>20.000</td>
+                                <td>-</td>
+                                <td>Apreensão definitiva do veículo.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="crimes-armas" class="crime-section">
+                    <h2>Crimes Envolvendo Armas</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Multa</th>
+                                <th>Fiançável</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 14</td>
+                                <td>Porte Ilegal de Arma</td>
+                                <td>8</td>
+                                <td>12.000</td>
+                                <td>-</td>
+                                <td>Apreensão da arma.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 12</td>
+                                <td>Posse Ilegal de Arma</td>
+                                <td>6</td>
+                                <td>8.000</td>
+                                <td>25.000</td>
+                                <td>Apreensão da arma.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 15</td>
+                                <td>Disparo de Arma de Fogo</td>
+                                <td>10</td>
+                                <td>15.000</td>
+                                <td>-</td>
+                                <td>Agravante se houver feridos ou morte.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 17</td>
+                                <td>Tráfico de Armas</td>
+                                <td>20</td>
+                                <td>30.000</td>
+                                <td>-</td>
+                                <td>Crime hediondo no RP.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 18</td>
+                                <td>Modificação Ilegal de Arma</td>
+                                <td>12</td>
+                                <td>20.000</td>
+                                <td>-</td>
+                                <td>Inclui armas automáticas ou adaptadas.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="crimes-justica" class="crime-section">
+                    <h2>Crimes Contra a Justiça</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Multa</th>
+                                <th>Fiançável</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 344</td>
+                                <td>Obstrução da Justiça</td>
+                                <td>10</td>
+                                <td>15.000</td>
+                                <td>-</td>
+                                <td>Inclui ocultação de informações ou auxílio à fuga.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 342</td>
+                                <td>Falso Testemunho</td>
+                                <td>6</td>
+                                <td>8.000</td>
+                                <td>-</td>
+                                <td>Aumenta se houver vantagem pessoal.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 344-A</td>
+                                <td>Coação no Curso do Processo</td>
+                                <td>12</td>
+                                <td>18.000</td>
+                                <td>-</td>
+                                <td>Agravante se houver arma ou organização criminosa.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 347</td>
+                                <td>Destruição de Provas</td>
+                                <td>8</td>
+                                <td>12.000</td>
+                                <td>-</td>
+                                <td>Inclui apagar registros digitais.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 333</td>
+                                <td>Corrupção Ativa</td>
+                                <td>12</td>
+                                <td>20.000</td>
+                                <td>-</td>
+                                <td>Crime autônomo da corrupção passiva.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="crimes-organizados" class="crime-section">
+                    <h2>Crimes Organizados e Financeiros</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Multa</th>
+                                <th>Fiançável</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 2º</td>
+                                <td>Crimes Organizados</td>
+                                <td>20</td>
+                                <td>30.000</td>
+                                <td>-</td>
+                                <td>Aumento de pena se houver violência ou tráfico de armas/drogas.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 1º</td>
+                                <td>Lavagem de Dinheiro</td>
+                                <td>18</td>
+                                <td>25.000</td>
+                                <td>-</td>
+                                <td>Inclui empresas de fachada e contas laranja.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 3º</td>
+                                <td>Financiamento de Atividades Criminosas</td>
+                                <td>15</td>
+                                <td>20.000</td>
+                                <td>-</td>
+                                <td>Crime autônomo, mesmo sem participação direta.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 2º §3º</td>
+                                <td>Liderança de Organização Criminosa</td>
+                                <td>30</td>
+                                <td>40.000</td>
+                                <td>-</td>
+                                <td>Pena aplicada cumulativamente ao crime principal.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="disposicoes-gerais" class="crime-section">
+                    <h2>Disposições Penais Gerais / Medidas Alternativas</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Tipificação Penal</th>
+                                <th>Pena</th>
+                                <th>Aplicação</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ART. 44</td>
+                                <td>Prestação de Serviço Comunitário</td>
+                                <td>0</td>
+                                <td>Réu primário, menor potencial ofensivo</td>
+                                <td>Descumprimento converte em pena privativa de liberdade.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 76</td>
+                                <td>Acordo Penal</td>
+                                <td>0</td>
+                                <td>Sem violência, confissão voluntária</td>
+                                <td>Homologação obrigatória por juiz RP.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 65</td>
+                                <td>Redução de Pena por Colaboração</td>
+                                <td>0</td>
+                                <td>Redução de 1/3 a 50% da pena</td>
+                                <td>Deve resultar em provas, identificação de cúmplices ou recuperação de bens.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 112</td>
+                                <td>Progressão de Pena</td>
+                                <td>0</td>
+                                <td>Redução da pena (regra geral)</td>
+                                <td>Decisão judicial obrigatória.</td>
+                            </tr>
+                            <tr>
+                                <td>ART. 61</td>
+                                <td>Reincidência (Agravante)</td>
+                                <td>0</td>
+                                <td>Agravamento de 1/3 da pena base</td>
+                                <td>Pode impedir acordo penal ou benefícios.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+    <script src="/src/codigo-penal.js"></script>
+    <button id="scrollToTopBtn" title="Voltar ao topo">▲</button>
+</body>
+</html>

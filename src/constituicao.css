@@ -1,0 +1,140 @@
+/* Estilos para a página da Constituição */
+
+.hero-banner-constituicao {
+    width: 100%;
+    height: 450px; /* Você pode ajustar a altura conforme necessário */
+    background-image: url('/src/assets/banner-constituicao.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.page-header {
+    display: none; /* Oculta o cabeçalho antigo */
+}
+
+
+/* Layout Principal da Página da Constituição */
+.constituicao-container {
+    display: flex;
+    max-width: 1400px; /* Aumentei a largura para acomodar melhor */
+    margin: 0 auto;
+    padding: 2rem;
+    gap: 3rem;
+    align-items: flex-start; /* Alinha os itens no topo */
+}
+
+/* Menu Lateral (Índice) */
+.indice-lateral {
+    position: sticky; /* Faz o menu "grudar" */
+    top: 120px; /* Distância do topo para grudar (abaixo do header) */
+    width: 280px;
+    flex-shrink: 0; /* Impede que o menu encolha */
+    height: calc(100vh - 140px); /* Altura ajustada */
+    overflow-y: auto; /* Adiciona rolagem se o conteúdo for maior */
+}
+
+.constituicao-page main {
+    padding-left: 0; /* Remove o padding antigo */
+}
+
+.indice-lateral::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem no Chrome, Safari e Opera */
+}
+
+.search-container {
+    margin-bottom: 1.5rem;
+}
+
+#search-input {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.indice-lateral nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.indice-lateral nav a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--text-light);
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.indice-lateral nav a:hover {
+    background-color: var(--card-bg);
+    color: #fff;
+}
+
+.indice-lateral nav a.active {
+    background-color: rgba(147, 51, 234, 0.1);
+    color: var(--primary-color);
+    border-left: 3px solid var(--primary-color);
+    font-weight: 600;
+}
+
+/* Conteúdo Principal do Artigo */
+.conteudo-constituicao {
+    flex: 1;
+    min-width: 0; /* Evita que o conteúdo flexível transborde */
+}
+
+.conteudo-constituicao section {
+    margin-bottom: 3rem;
+    padding-top: 2rem; /* Espaço para a âncora do link */
+    margin-top: -2rem; /* Compensa o padding-top */
+}
+
+.conteudo-constituicao h2 { /* Títulos (TÍTULO I, TÍTULO II...) */
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.conteudo-constituicao h3 { /* Subtítulos (Preâmbulo, Poder Executivo...) */
+    font-size: 1.4rem;
+    color: #fff;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.conteudo-constituicao h4 { /* Artigos (Art. 1º...) */
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: 600;
+    margin-top: 1.5rem;
+}
+
+.conteudo-constituicao p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.conteudo-constituicao ul {
+    list-style: disc;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.conteudo-constituicao ul li {
+    color: var(--text-light);
+}

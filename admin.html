@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração - Governo de Riviera</title>
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>RIVIERA</h2>
+                <span>PAINEL ADMIN</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" data-tab="administracao"><i class="fa-solid fa-shield-halved"></i> Administração</a></li>
+                    <li><a href="#" data-tab="audiencias"><i class="fa-solid fa-gavel"></i> Audiências</a></li>
+                    <li><a href="#" data-tab="agendar-audiencia"><i class="fa-solid fa-calendar-plus"></i> Agendar Audiência</a></li>
+                    <li><a href="#" data-tab="equipe"><i class="fa-solid fa-users"></i> Equipe</a></li>
+                    <li><a href="#" data-tab="comunicados"><i class="fa-solid fa-bullhorn"></i> Comunicados</a></li>
+                </ul>
+            </nav>
+            <button id="logout-button" class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Sair</span>
+            </button>
+        </aside>
+
+        <main class="admin-content">
+            <div id="administracao" class="tab-content active">
+                <div class="content-header">
+                    <h1>Conteúdo da Administração</h1>
+                    <button id="open-create-user-modal" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Criar Usuário</button>
+                </div>
+                <p>Bem-vindo à área de administração. Futuros controles e ferramentas aparecerão aqui.</p>
+
+                <!-- Seção Prêmio da Jornada -->
+                <div class="jornada-manager">
+                    <div class="content-header">
+                        <h2><i class="fa-solid fa-trophy"></i> Prêmio da Jornada</h2>
+                    </div>
+                    <div class="form-group">
+                        <label for="jornada-premio-input">Texto do prêmio ao completar a jornada:</label>
+                        <input type="text" id="jornada-premio-input" class="form-control" placeholder="Ex: Ganhe um item exclusivo">
+                        <button id="save-jornada-premio" class="btn btn-primary">Salvar Prêmio</button>
+            </div>
+
+            <hr class="section-divider">
+
+            <div class="content-header">
+                <h2>Gerenciamento de Usuários</h2>
+            </div>
+            <div class="table-container">
+                <table id="admin-users-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Cargo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-users-table-body">
+                        <!-- Usuários serão carregados aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+                <hr class="section-divider">
+
+                <!-- Seção de Gerenciamento de Notícias -->
+                <div class="news-manager">
+                    <div class="content-header">
+                        <h2>Gerenciador de Notícias</h2>
+                    </div>
+                    <div id="news-slots-container" class="slots-container">
+                        <button class="btn btn-secondary slot-btn" data-slot="1"><i class="fa-solid fa-pen-to-square"></i> Gerenciar Card 1</button>
+                        <button class="btn btn-secondary slot-btn" data-slot="2"><i class="fa-solid fa-pen-to-square"></i> Gerenciar Card 2</button>
+                        <button class="btn btn-secondary slot-btn" data-slot="3"><i class="fa-solid fa-pen-to-square"></i> Gerenciar Card 3</button>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="tv-manager">
+                    <div class="content-header">
+                        <h2><i class="fa-solid fa-tv"></i> Gerenciar Riviera TV</h2>
+                        <button id="add-video-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Adicionar Novo Vídeo</button>
+                    </div>
+                    <div id="videos-list-container">
+                        <!-- Vídeos cadastrados serão carregados aqui -->
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="jobs-manager">
+                    <div class="content-header">
+                        <h2><i class="fa-solid fa-briefcase"></i> Gerenciar Vagas de Emprego</h2>
+                        <button id="add-job-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Adicionar Nova Vaga</button>
+                    </div>
+                    <div id="jobs-list-container">
+                        <!-- Vagas cadastradas serão carregadas aqui -->
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="servicos-manager">
+                    <div class="content-header">
+                        <h2><i class="fa-solid fa-concierge-bell"></i> Gerenciar Serviços Públicos</h2>
+                    </div>
+                    <form id="servico-form">
+                        <input type="hidden" id="servico-id">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="servico-name">Nome do Serviço</label>
+                                <input type="text" id="servico-name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="servico-schedule">Horário</label>
+                                <input type="text" id="servico-schedule" class="form-control" placeholder="Ex: 08:00 - 17:00">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="servico-description">Descrição</label>
+                            <textarea id="servico-description" class="form-control" rows="3" placeholder="Breve descrição do serviço..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="servico-link">Link (Saiba Mais)</label>
+                                <input type="text" id="servico-link" class="form-control" placeholder="https://...">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar Serviço</button>
+                        <button type="button" id="cancel-edit-servico-btn" class="btn btn-secondary" style="display: none; margin-left: 10px;">Cancelar Edição</button>
+                    </form>
+                    <div id="servicos-list-container" class="table-container" style="margin-top: 2rem;">
+                        <!-- A lista de serviços será carregada aqui -->
+                    </div>
+                </div>
+            </div>
+            
+            <div id="audiencias" class="tab-content">
+                <div class="content-header">
+                    <h1>Painel do Juiz</h1>
+                </div>
+                <div class="table-container">
+                    <table id="juiz-audiencias-table">
+                        <thead>
+                            <tr>
+                                <th>Nº do Processo</th>
+                                <th>Data e Hora</th>
+                                <th>Advogado</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="juiz-audiencias-table-body">
+                            <!-- Audiências para o juiz serão carregadas aqui -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="agendar-audiencia" class="tab-content">
+                <div class="content-header">
+                    <h1>Agendar Nova Audiência</h1>
+                </div>
+                <form id="audiencia-form">
+                    <!-- Seção 1: Informações do Processo e Partes -->
+                    <div class="form-section">
+                        <h3>Informações do Processo</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="audiencia-processo">Número do Processo</label>
+                                <input type="text" id="audiencia-processo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="audiencia-juiz">Nome do Juiz</label>
+                                <input type="text" id="audiencia-juiz" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="audiencia-autor">Autor / Requerente</label>
+                                <input type="text" id="audiencia-autor" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="audiencia-reu">Réu / Requerido</label>
+                                <input type="text" id="audiencia-reu" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seção 2: Detalhes do Agendamento -->
+                    <div class="form-section">
+                        <h3>Agendamento</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="audiencia-data">Data da Audiência</label>
+                                <input type="date" id="audiencia-data" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="audiencia-horario">Horário</label>
+                                <input type="time" id="audiencia-horario" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="audiencia-tipo">Tipo de Audiência</label>
+                            <select id="audiencia-tipo" required>
+                                <option value="" disabled selected>Selecione o tipo...</option>
+                                <option value="Conciliação">Conciliação</option>
+                                <option value="Instrução">Instrução</option>
+                                <option value="Julgamento">Julgamento</option>
+                                <option value="Custódia">Custódia</option>
+                                <option value="Outra">Outra</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Seção 3: Advogado Solicitante -->
+                    <div class="form-section">
+                        <h3>Advogado Solicitante</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="audiencia-advogado-nome">Nome do Advogado</label>
+                                <input type="text" id="audiencia-advogado-nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="audiencia-advogado-id">ID do Advogado</label>
+                                <input type="text" id="audiencia-advogado-id">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seção 4: Testemunhas -->
+                    <div class="form-section">
+                        <h3>Testemunhas</h3>
+                        <div id="testemunhas-container">
+                            <!-- Campos de testemunha serão adicionados aqui dinamicamente -->
+                        </div>
+                        <button type="button" id="add-testemunha-btn" class="btn btn-secondary"><i class="fa-solid fa-plus"></i> Adicionar Testemunha</button>
+                    </div>
+
+                    <!-- Seção 5: Provas e Relatório -->
+                    <div class="form-section">
+                        <h3>Provas e Relatório</h3>
+                        <div class="form-group">
+                            <label for="audiencia-provas-links">Links de Vídeos (um por linha)</label>
+                            <textarea id="audiencia-provas-links" rows="3" placeholder="https://www.youtube.com/watch?v=..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="audiencia-provas-arquivos">Anexar Provas (Imagens, PDF, etc.)</label>
+                            <input type="file" id="audiencia-provas-arquivos" multiple>
+                        </div>
+                        <div class="form-group">
+                            <label for="audiencia-resumo">Resumo da Audiência</label>
+                            <textarea id="audiencia-resumo" rows="5" placeholder="Descreva brevemente os pontos principais..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="audiencia-relatorio-anexo">Anexar Relatório Completo (Opcional)</label>
+                            <input type="file" id="audiencia-relatorio-anexo">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Agendar Audiência</button>
+                </form>
+
+                <hr class="section-divider">
+
+                <div class="content-header">
+                    <h2>Histórico de Agendamentos</h2>
+                </div>
+                <div class="table-container">
+                    <table id="advogado-audiencias-table">
+                        <thead>
+                            <tr>
+                                <th>Nº do Processo</th>
+                                <th>Data e Hora</th>
+                                <th>Juiz</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="advogado-audiencias-table-body">
+                            <!-- Histórico do advogado será carregado aqui -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="equipe" class="tab-content">
+                <div class="content-header">
+                    <h1>Gerenciamento de Equipe</h1>
+                    <button id="open-create-user-modal-equipe" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Adicionar Membro</button>
+                </div>
+                <div class="table-container">
+                    <table id="equipe-table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Cargo</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="equipe-table-body">
+                            <!-- Usuários serão carregados aqui via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="comunicados" class="tab-content">
+                <div class="content-header">
+                    <h1>Gerenciar Conteúdo Público</h1>
+                </div>
+
+                <div class="sub-nav">
+                    <button class="sub-nav-btn active" data-subtab="anuncios">Anúncios</button>
+                    <button class="sub-nav-btn" data-subtab="gerenciar-equipe">Equipe</button>
+                </div>
+
+                <!-- Sub-aba de Anúncios (Comunicados) -->
+                <div id="anuncios" class="sub-tab-content active">
+                    <div class="comunicados-manager">
+                        <form id="comunicado-form">
+                            <input type="hidden" id="comunicado-id">
+                            <div class="form-group">
+                                <label for="comunicado-titulo">Título</label>
+                                <input type="text" id="comunicado-titulo" class="form-control" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="comunicado-tag">Tag (ex: Atualizações, Avisos)</label>
+                                    <input type="text" id="comunicado-tag" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comunicado-autor">Autor</label>
+                                    <input type="text" id="comunicado-autor" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="comunicado-conteudo">Conteúdo</label>
+                                <textarea id="comunicado-conteudo" class="form-control" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Salvar Comunicado</button>
+                            <button type="button" id="cancel-edit-comunicado-btn" class="btn btn-secondary" style="display: none;">Cancelar Edição</button>
+                        </form>
+                        <hr class="section-divider">
+                        <div class="content-header">
+                            <h2>Comunicados Existentes</h2>
+                        </div>
+                        <div id="comunicados-list-container" class="table-container">
+                            <!-- A lista de comunicados será carregada aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-aba de Gerenciar Equipe -->
+                <div id="gerenciar-equipe" class="sub-tab-content">
+                    <div class="equipe-manager">
+                        <form id="equipe-form">
+                            <input type="hidden" id="membro-id">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="membro-nome">Nome</label>
+                                    <input type="text" id="membro-nome" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="membro-cargo">Cargo</label>
+                                    <input type="text" id="membro-cargo" class="form-control" required>
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label for="membro-avatar-upload">Avatar</label>
+                                <input type="file" id="membro-avatar-upload" class="form-control" accept="image/*">
+                                <div class="avatar-preview-container">
+                                    <img id="membro-avatar-preview" src="#" alt="Pré-visualização do Avatar" style="display: none;" />
+                                </div>
+                                <input type="hidden" id="membro-avatar-url">
+                            </div>
+                            <div class="form-group">
+                                <label for="membro-descricao">Descrição</label>
+                                <textarea id="membro-descricao" class="form-control" rows="3" required></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="membro-status">Status</label>
+                                    <select id="membro-status" class="form-control">
+                                        <option value="Ativo">Ativo</option>
+                                        <option value="Ausente">Ausente</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="membro-ordem">Ordem de Exibição</label>
+                                    <input type="number" id="membro-ordem" class="form-control" value="0">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Salvar Membro</button>
+                            <button type="button" id="cancel-edit-membro-btn" class="btn btn-secondary" style="display: none;">Cancelar Edição</button>
+                        </form>
+                        <hr class="section-divider">
+                        <div class="content-header">
+                            <h2>Membros da Equipe</h2>
+                        </div>
+                        <div id="equipe-list-container" class="table-container">
+                            <!-- A lista de membros será carregada aqui -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Outros conteúdos de abas podem ser adicionados aqui -->
+        </main>
+
+        <!-- Modal para Criar Usuário -->
+        <div id="create-user-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Criar Novo Usuário</h2>
+                <form id="create-user-form">
+                    <div class="form-group">
+                        <label for="user-name">Nome Completo</label>
+                        <input type="text" id="user-name" name="user-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-email">E-mail</label>
+                        <input type="email" id="user-email" name="user-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-password">Senha</label>
+                        <input type="password" id="user-password" name="user-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-role">Cargo</label>
+                        <select id="user-role" name="user-role" required>
+                            <option value="" disabled selected>Selecione um cargo...</option>
+                            <option value="Ministro">Ministro</option>
+                            <option value="Juiz">Juiz</option>
+                            <option value="Advogado">Advogado</option>
+                            <option value="Estagiario">Estagiário</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Criar Usuário</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal para Adicionar/Editar Notícia -->
+        <div id="news-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2 id="news-modal-title">Adicionar Nova Notícia</h2>
+                <form id="news-form">
+                    <input type="hidden" id="news-id" name="news-id">
+                    <div class="form-group">
+                        <label for="news-title">Título</label>
+                        <input type="text" id="news-title" name="news-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="news-slot">Posição do Card</label>
+                        <select id="news-slot" name="news-slot" required>
+                            <option value="" disabled selected>Selecione a posição...</option>
+                            <option value="1">Card 1</option>
+                            <option value="2">Card 2</option>
+                            <option value="3">Card 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="news-summary">Resumo</label>
+                        <textarea id="news-summary" name="news-summary" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="news-content">Conteúdo Completo (Opcional)</label>
+                        <textarea id="news-content" name="news-content" rows="6"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="news-images">Imagens (selecione uma ou mais)</label>
+                        <input type="file" id="news-images" name="news-images" multiple accept="image/*">
+                        <div id="image-preview-container"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="news-interval">Intervalo do Slide (segundos)</label>
+                        <input type="number" id="news-interval" name="news-interval" min="1" value="5" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar Notícia</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal para Adicionar/Editar Vídeo -->
+        <div id="video-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" id="close-video-modal">&times;</span>
+                <h3 id="video-modal-title">Adicionar Novo Vídeo</h3>
+                <form id="video-form">
+                    <input type="hidden" id="video-id">
+                    <div class="form-group">
+                        <label for="video-title">Título do Vídeo</label>
+                        <input type="text" id="video-title" name="video-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="video-url">URL do Vídeo (YouTube)</label>
+                        <input type="url" id="video-url" name="video-url" placeholder="https://www.youtube.com/watch?v=..." required>
+                    </div>
+                    <div class="form-group form-group-checkbox">
+                        <input type="checkbox" id="video-is-highlight" name="video-is-highlight">
+                        <label for="video-is-highlight">Marcar como destaque na lista</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar Vídeo</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal para Adicionar/Editar Vaga -->
+        <div id="job-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" id="close-job-modal">&times;</span>
+                <h3 id="job-modal-title">Adicionar Nova Vaga</h3>
+                <form id="job-form">
+                    <input type="hidden" id="job-id">
+                    <div class="form-group">
+                        <label for="job-name">Nome da Vaga</label>
+                        <input type="text" id="job-name" name="job-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-description">Descrição Curta</label>
+                        <textarea id="job-description" name="job-description" rows="2" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-requirements">Requisitos</label>
+                        <textarea id="job-requirements" name="job-requirements" rows="2" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-details">Detalhes (Conteúdo do "Ver Mais")</label>
+                        <textarea id="job-details" name="job-details" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-status">Status</label>
+                        <select id="job-status" name="job-status" required>
+                            <option value="Aberto">Aberto</option>
+                            <option value="Fechado">Fechado</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar Vaga</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal de Detalhes da Audiência -->
+        <div id="audiencia-details-modal" class="modal">
+            <div class="modal-content large">
+                <span class="close-button">&times;</span>
+                <h2>Detalhes da Audiência</h2>
+                <div id="audiencia-details-content">
+                    <!-- O conteúdo será preenchido dinamicamente -->
+                </div>
+                <div id="audiencia-actions-juiz" class="modal-actions">
+                    <button id="btn-aprovar-audiencia" class="btn btn-success">Aprovar</button>
+                    <button id="btn-remarcar-audiencia" class="btn btn-warning">Remarcar</button>
+                    <button id="btn-cancelar-audiencia" class="btn btn-danger">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/admin.js"></script>
+    <style>
+        /* Adiciona espaçamento na tabela da equipe */
+        #equipe-table th,
+        #equipe-table td {
+            padding: 12px 15px; /* 12px em cima/baixo, 15px nos lados */
+            text-align: left;
+            border-bottom: 1px solid #444; /* Adiciona uma linha sutil entre as linhas */
+        }
+        #equipe-table th {
+            background-color: #2c2c2c; /* Um fundo um pouco mais claro para o cabeçalho */
+        }
+    </style>
+</body>
+</html>

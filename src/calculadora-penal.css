@@ -1,0 +1,404 @@
+.calculadora-main {
+    display: grid;
+    grid-template-columns: 300px 1fr 350px;
+    gap: 2rem;
+    padding: 2rem;
+    height: calc(100vh - 120px);
+}
+
+.coluna-esquerda, .coluna-central, .coluna-direita {
+    background-color: var(--header-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.seletor-codigo-container {
+    margin-bottom: 1.5rem;
+}
+
+.seletor-codigo-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+#seletor-codigo {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.pesquisa-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.pesquisa-container i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+#search-crime {
+    width: 100%;
+    padding: 0.8rem 0.8rem 0.8rem 40px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-color);
+}
+
+.cards-categorias, .cards-mais-utilizados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.card-categoria, .card-utilizado {
+    background-color: var(--card-bg);
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card-categoria:hover, .card-utilizado:hover {
+    background-color: var(--primary-color);
+}
+
+.mais-utilizados-container {
+    margin-top: 2rem;
+}
+
+.resultados-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.resultado-item {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 5px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.resultado-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.artigo {
+    font-weight: bold;
+}
+
+.nome-crime {
+    color: var(--primary-color);
+}
+
+.resumo {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+.resultado-detalhes {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.btn-adicionar {
+    width: 100%;
+    padding: 0.6rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-adicionar:hover {
+    background-color: #a855f7;
+}
+
+.resumo-lista {
+    margin-bottom: 2rem;
+}
+
+.resumo-totais {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.total-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.resumo-botoes {
+    margin-top: 2rem;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.btn-copiar, .btn-limpar, .btn-salvar, .btn-pdf {
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-copiar:hover, .btn-limpar:hover, .btn-salvar:hover, .btn-pdf:hover {
+    transform: translateY(-2px);
+}
+
+.btn-salvar {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-copiar {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-pdf {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-limpar {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.prisoes-salvas-container {
+    margin-top: 2rem;
+}
+
+.prisao-salva-item {
+    background-color: var(--card-bg);
+    padding: 0.8rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prisao-salva-item span {
+    font-size: 0.9rem;
+}
+
+.prisao-salva-item .botoes {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.prisao-salva-item button {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.prisao-salva-item button.carregar {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.prisao-salva-item button.excluir {
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+}
+
+
+.resumo-item {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--primary-color);
+}
+
+.resumo-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.resumo-item-header strong {
+    font-size: 1.1rem;
+}
+
+.resumo-item p {
+    color: #ccc;
+    margin-bottom: 0.8rem;
+}
+
+.resumo-item-detalhes {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.btn-remover {
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+}
+
+.btn-remover:hover {
+    background: #ff1a1a;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+.resumo-item.fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.resumo-item.fade-out {
+    animation: fadeOut 0.3s ease-in forwards;
+}
+
+.btn-copiar.copied {
+    background-color: #28a745; /* Verde para indicar sucesso */
+}
+
+/* Estilos do Modal */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--header-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    margin-bottom: 1.5rem;
+    color: #ccc;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-botoes button {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.modal-botoes button:hover {
+    background-color: #a855f7;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal-btn:hover {
+    color: white;
+}
+
+.modal-botoes .btn-cancel {
+    background-color: #5a5a5a;
+}
+
+.modal-botoes .btn-cancel:hover {
+    background-color: #717171;
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <title>Código de Trânsito - Riviera</title>
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/header.css">
+    <link rel="stylesheet" href="/src/codigo-de-transito.css">
+
+    <style>
+        html { background-color: #111; }
+        body.preloading { opacity: 0; }
+    </style>
+</head>
+<body class="codigo-penal-page preloading">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="/src/assets/logo.png" alt="Logo Riviera" height="90">
+            <div>
+                <h1>GOVERNO DA CIDADE</h1>
+                <h2>RIVIERA</h2>
+                <p>TRABALHANDO POR TODOS, TODOS OS DIAS.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li class="dropdown">
+                            <a href="#" id="governo-button">GOVERNO <i class="fa-solid fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-landmark"></i> Administração</h4>
+                                    <ul>
+                                        <li><a href="#">Prefeito</a></li>
+                                        <li><a href="#">Vice-Prefeito</a></li>
+                                        <li><a href="#">Secretarias</a></li>
+                                        <li><a href="#">Organograma</a></li>
+                                        <li><a href="#">Agenda Oficial</a></li>
+                                        <li><a href="#">Plano de Governo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-gavel"></i> Legislação</h4>
+                                    <ul>
+                                        <li><a href="constituicao.html" id="constituicao-btn">Constituição da Cidade</a></li>
+                                        <li><a href="codigo-penal.html">Código Penal</a></li>
+                                        <li><a href="codigo-civil.html">Código Civil</a></li>
+                                        <li><a href="#">Código Processual Penal</a></li>
+                                        <li><a href="codigo-de-transito.html">Código de Trânsito</a></li>
+                                        <li><a href="calculadora-penal.html">Calculadora Unificada</a></li>
+                                        <li><a href="leis-municipais.html">Leis Municipais</a></li>
+                                        <li><a href="#">Decretos</a></li>
+                                        <li><a href="#">Portarias</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-building-columns"></i> Órgãos Públicos</h4>
+                                    <ul>
+                                        <li><a href="#">Polícia Militar</a></li>
+                                        <li><a href="#">Polícia Civil</a></li>
+                                        <li><a href="#">Tribunal de Justiça</a></li>
+                                        <li><a href="#">Ministério Público</a></li>
+                                        <li><a href="#">Hospital Municipal</a></li>
+                                        <li><a href="#">Corpo de Bombeiros</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    <li><a href="cidadao.html">CIDADÃO</a></li>
+                    <li><a href="#">TRANSPARÊNCIA</a></li>
+                    <li><a href="#">CONTATO</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="player-count">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="player-count-span">--/--</span>
+                </div>
+                <a href="#" class="btn btn-outline">SERVIDOR DA CIDADE</a>
+                <a href="#" class="btn btn-primary btn-vip">LOJA VIP</a>
+                <a href="#" class="btn btn-primary" id="area-governo-btn">ÁREA DO GOVERNO</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-banner-leis">
+            <div class="hero-content">
+                <h1>Código de Trânsito</h1>
+                <p>Normas que regulamentam a circulação de veículos e pedestres, visando a segurança e a ordem no trânsito de Riviera.</p>
+            </div>
+        </section>
+
+        <div class="leis-container">
+            <aside class="filtros-lateral">
+                <h3>Filtros</h3>
+                <div class="filtro-grupo">
+                    <label for="search-artigo">Pesquisar por artigo</label>
+                    <input type="text" id="search-artigo" placeholder="Nº do artigo...">
+                </div>
+                <div class="filtro-grupo">
+                    <label for="search-tipificacao">Pesquisar por infração</label>
+                    <input type="text" id="search-tipificacao" placeholder="Nome da infração...">
+                </div>
+            </aside>
+
+            <section class="lista-leis">
+                <section id="infracoes-transito" class="crime-section">
+                    <h2>Infrações de Trânsito</h2>
+                    <table class="crime-table">
+                        <thead>
+                            <tr>
+                                <th>Artigo</th>
+                                <th>Infração</th>
+                                <th>Multa</th>
+                                <th>Pena</th>
+                                <th>Observações / Medidas Administrativas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>ART 162 I</td><td>DIRIGIR VEÍCULO SEM POSSUIR CARTEIRA DE HABILITAÇÃO</td><td>3.000</td><td></td><td>DEVERÁ SER LIBERADO O VEÍCULO PARA OUTRA PESSOA HABILITADA, CASO NÃO HAJA DEVERÁ SER APREENDIDO.</td></tr>
+                            <tr><td>ART 165</td><td>DIRIGIR SOB INFLUÊNCIA DE ÁLCOOL OU DROGAS</td><td>3.000</td><td></td><td>DEVERÁ SER CONSTATADO ATRAVÉS DO APARELHO ETILÔMETRO OU POR DOIS SINAIS NOTÓRIOS SENDO: FALA ALTERADA, OLHOS AVERMELHADOS, DIFICULDADES AO ANDAR E ODOR ETÍLICO. DEVERÁ SER APREENDIDA A CNH E O VEÍCULO SERÁ ENTREGUE A PESSOA QUE NÃO ESTEJA NAS MESMAS CONDIÇÕES.</td></tr>
+                            <tr><td>ART 165-A</td><td>RECUSAR-SE A SER SUBMETIDO AO TESTE DO ETILÔMTERO</td><td>3.000</td><td></td><td>CASO FOR CONSTATADO OS SINAIS NOTÓRIOS, MESMO RECUSANDO O CONDUTOR A FAZER O TESTE, DEVERÁ APLICAR O ARTIGO 165 DO CT, REALIZANDO TODOS OS PROCEDIEMENTOS DESCRITOS ANTERIORMENTE.</td></tr>
+                            <tr><td>ART 167</td><td>DEIXAR DE UTILIZAR O CINTO DE SEGURANÇA</td><td>2.000</td><td></td><td>SOMENTE LIBERAR APÓS SOLUCIONAR A INFRAÇÃO.</td></tr>
+                            <tr><td>ART 169</td><td>DIRIGIR SEM ATENÇÃO OU CUIDADOS A SEGURANÇA</td><td>2.000</td><td></td><td>CONDUTOR QUE COLOQUE EM RISCO A SEGURANÇA VIÁRIA OU PREJUDIQUE A SEGURANÇA NO TRÂNSITO.</td></tr>
+                            <tr><td>ART 172</td><td>ATIRAR DO VEÍCULO OU ABANDONAR NA VIA OBEJTOS</td><td>2.000</td><td></td><td>EQUIPARA-SE SUBSTÂNCIAS OU QUALQUER OUTRO.</td></tr>
+                            <tr><td>ART 173</td><td>DISPUTAR CORRIDA</td><td>10.000</td><td>2.5</td><td>DOIS OU MAIS VEÍCULOS DISPUTANDO CORRIDA POR DECISÃO DOS SEUS CONDUTORES, DEVERÁ RECOLHER O DOCUMENTO DE HABILITAÇÃO.</td></tr>
+                            <tr><td>ART 175</td><td>UTILIAR O VEÍCULO PARA EXIBIR MANOBRA PERIGOSA</td><td>15.000</td><td></td><td>EQUIPARA-SE EXIBIÇÃO, ARRANCADA BRUSCA, DERRAPAGEM OU FRENAGEM COM DESLIZAMENTO OU ARRASTAMENTO DE PNEUS, OU OUTRAS DEMONSTRAÇÕES.</td></tr>
+                            <tr><td>ART 176 I</td><td>DEIXAR O CONDUTOR DE PRESTAR SOCORRO EM ACIDENTES</td><td>30.000</td><td></td><td>DEVERÁ SER O ACIDENTE COM VÍTIMA E APENAS O CONDUTOR ENVOLVIDO, DEVERÁ RECOLHER A CNH.</td></tr>
+                            <tr><td>ART 180</td><td>IMOBILIZAR O VEÍCULO NA VIA POR ESTAR SEM COMBUSTÍVEL</td><td>5.000</td><td></td><td>DEVERÁ PROVIDENCIAR A RETIRADA DO VEÍCULO DO LOCAL PARA NÃO PREJUDICAR A CIRCULAÇÃO VIÁRIA.</td></tr>
+                            <tr><td>ART 181</td><td>PARAR OU ESTACIONAR O VEÍCULO EM LOCAIS PROIBIDOS</td><td>7.000</td><td></td><td>DEVERÁ PROVIDENCIAR A RETIRADA DO VEÍCULO. SÃO CONSIDERADOS LOCAIS PROIBIDOS: SARGETAS NA COR VERMELHA, CALÇADAS, PRAÇAS, LOGRADOUROS, HOSPITAIS EM CASOS DE NÃO EMERGÊNCIA, ÁREAS MILITARES OU DO PAÇO PÚBLICO, NAS VIAS DE TRÂNSITO RÁPIDO (RODOVIAS), EM LOCAIS DESPROVIDOS DE ACOSTAMENTO OU PROVIDOS MAS SEM A DEVIDA EMERGÊNCIA, OU NOS INDICADOS PELO AGENTE POLICIAL.</td></tr>
+                            <tr><td>ART 186</td><td>TRANSITAR PELA CONTRAMÃO DE DIREÇÃO</td><td>5.000</td><td></td><td>TRÂNSITAR NA CONTRAMÃO DE DIREÇÃO CAUSANDO RISCO A SEGURANÇA VIÁRIA.</td></tr>
+                            <tr><td>ART 190</td><td>SEGUIR VEÍCULO POLICIAL OU EM SITUAÇÃO DE EMERGÊNCIA</td><td>10.000</td><td></td><td>SEGUIR O VEÍCULO EM SITUAÇÕES DE URGÊNCIA.</td></tr>
+                            <tr><td>ART 192</td><td>DEIXAR DE GUARDAR DISTÂNCIA DE SEGURANÇA</td><td>2.000</td><td></td><td>DEIXAR DE GUARDAR DISTÂNCIA LATERAL OU FRONTAL DOS DEMAIS VEÍCULOS NA VIA.</td></tr>
+                            <tr><td>ART 193</td><td>TRANSITAR COM O VEÍCULO EM LOCAIS PROIBIDOS</td><td>7.000</td><td></td><td>CALÇADAS, PASSEIOS, PASSARELAS, CICLOVIAS, CICLOFAIXAS, ILHAS, REFÚGIOS, AJARDINAMENTOS, CANTEIROS, DIVISORES DE PISTA, ACOSTAMENTOSM MARCA DE CANALIZAÇÃO, GRAMADOS E JARDINS PÚBLICOS.</td></tr>
+                            <tr><td>ART 194</td><td>TRANSITAR DE MARCHA À RÉ</td><td>7.000</td><td></td><td>SALVO NAS PEQUENAS DISTÂNCIAS QUE NÃO CAUSAM RISCO A SEGURANÇA VIÁRIA.</td></tr>
+                            <tr><td>ART 195</td><td>DESOBEDECER AS ORDENS EMANADAS DO AGENTE POLICIAL</td><td>10.000</td><td></td><td>DESOBEDECER TODA E QUALQUER DE ORDEM DE PARADA DO AGENTE POLICIAL OU OUTRAS.</td></tr>
+                            <tr><td>ART 206</td><td>EXECUTAR OPERAÇÃO DE RETORNO EM LOCAL PROIBIDO</td><td>2.000</td><td></td><td>EXECUTAR OPERAÇÕES DE RETORNO EM LOCAIS COMO DIVISORES DE PISTA PROVIDOS POR CONIFICAÇÃO, OU SEMELHANTE, ENTRE DEFENSAS METÁLICAS OU LOCAIS ONDE NÃO HAJA A SINALIZAÇÃO PERTINENTE OU QUE SE PERMITA FAZER.</td></tr>
+                            <tr><td>ART 208</td><td>AVANÇAR O SINAL VERMELHO OU DE PARADA OBRIGATÓRIA</td><td>5.000</td><td></td><td>DEVERÁ APENAS UMA INFRAÇÃO DESTA ESPÉCIE, MESMO NOS CASOS DE AVANÇAR POR DUAS OU MAIS VEZES.</td></tr>
+                            <tr><td>ART. 210</td><td>TRANSPOR SEM AUTORIZAÇÃO BLOQUEIO VIÁRIO POLICIAL</td><td>20.000</td><td></td><td>TRANSPOR NOS CASOS DE BLOQUEIOS POLICIAIS OU SEMELHANTES PARA DETERMINADAS OPERAÇÕES OU AÇÕES.</td></tr>
+                            <tr><td>ART. 218</td><td>TRANSITAR EM VELOCIDADE SUPERIOR À MÁXIMA PERMITIDA</td><td>5.000</td><td></td><td>PODERÁ SER REALIZADA APENAS NA UTILIZAÇÃO DO EQUIPAMENTO DE RADAR FIXO OU MÓVEL. SERÁ CONSIDERADA A VELOCIDADE MÁXIMA PERMITIDA DE 120 KM/H EM: RODOVIAS E 50 KM/H EM: VIAS URBANAS OU NOS INTERIORES DO MUNICÍPIOS.</td></tr>
+                            <tr><td>ART. 227</td><td>UTILIZAR BUZINA PROLONGADA OU EM DESACORDO</td><td>2.000</td><td></td><td>UTILIZAR BUZINA PROLONGADA OU SEMELHANTES.</td></tr>
+                            <tr><td>ART. 228</td><td>USAR SOM VEÍCULAR EM ÁREAS PROIBIDAS</td><td>10.000</td><td></td><td>UTILIZAR EM: PROXIMIDADES A HOSPITAIS, ÓRGÃOS PÚBLICOS, ESPAÇOS MUNICIPAIS, ÁREAS MILITARES, IGREJAS, OU QUE PERTUBE A PAZ OU O SOSSEGO ALHEIO.</td></tr>
+                            <tr><td>ART. 231</td><td>TRANSITAR COM O VEÍCULO EM MAU ESTADO DE CONSERVAÇÃO</td><td>7.000</td><td></td><td>COM EQUIPAMENTOS OBRIGATÓRIOS DANIFICADOS, SENDO: PARACHOQUE, PORTAS, CAPÔ, PORTAMALAS, PNEUS, PARABRISAS E SEMELHANTES.</td></tr>
+                            <tr><td>ART. 231 V</td><td>TRANSITAR COM VEÍCULO EXCEDENDO PESO PERMITIDO</td><td>5.000</td><td></td><td>VEÍCULOS DE CARGA QUE EXCEDAM O PESSO TOTAL DA CARGA E AS DIMENSÕES DE ALTURA E LARGURA.</td></tr>
+                            <tr><td>ART. X</td><td>FUGA</td><td>20.000</td><td>5</td><td>ATO DE FUGIR DA POLICIA, OU TENTAR FUGIR DA POLÍCIA</td></tr>
+                            <tr><td>ART. 244</td><td>CONDUZIR MOTOCICLETA SEM CAPACETE E OUTROS</td><td>7.000</td><td></td><td>EQUIPARA-SE OS CALÇADOS QUE NÃO SE FIXAM AOS PÉS COMO: CHINELOS E SANDÁLIAS SEM TIRAS DE FIXAÇÃO. DEVERÁ LIBERAR O CONDUTOR OU PASSAGEIRO APÓS A CORREÇÃO DA IRREGULARIDADE, CASO CONTRÁRIO O VEÍCULO SERÁ APREENDIDO</td></tr>
+                            <tr><td>ART. 253</td><td>BLOQUEAR A VIA COM O VEÍCULO</td><td>10.000</td><td></td><td>BLOQUEAR A VIA COM INTENÇÃO DE DIFICULTAR O TRÂNSITO OU IMPEDIR A LIVRE CIRCULAÇÃO.</td></tr>
+                        </tbody>
+                    </table>
+                    <p style="text-align: center; margin-top: 2rem; font-style: italic; color: var(--text-color-secondary);">ESCRITO SEM CUNHO E EQUIPARAÇÃO COM A REALIDADE, APENAS PARA O SEGUIMENTO DE JOGO GTA-V FIVEM.</p>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Modal de Autenticação -->
+    <div id="auth-modal" class="auth-modal-overlay">
+        <div class="auth-modal-content">
+            <span class="close-button">&times;</span>
+            
+            <!-- Formulário de Login -->
+            <form id="login-form" class="auth-form">
+                <h2>Área do Governo</h2>
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit">Entrar</button>
+                <p class="toggle-form">Não tem uma conta? <a id="show-register">Crie uma agora</a></p>
+            </form>
+
+            <!-- Formulário de Criação de Conta -->
+            <form id="register-form" class="auth-form">
+                <h2>Criar Conta</h2>
+                <div class="form-group">
+                    <label for="register-name">Nome Completo</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Senha</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <button type="submit">Criar Conta</button>
+                <p class="toggle-form">Já tem uma conta? <a id="show-login">Faça o login</a></p>
+            </form>
+        </div>
+    </div>
+</body>    <script src="/src/codigo-de-transito.js"></script> 
+    <button id="scrollToTopBtn" title="Voltar ao topo">▲</button>
+</body>
+</html>

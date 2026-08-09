@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Civil - Riviera</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/header.css">
+    <link rel="stylesheet" href="src/codigo-civil.css">
+    <link rel="stylesheet" href="src/swal-custom.css">
+    <link rel="stylesheet" href="src/auth.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/src/assets/logo.png" alt="Logo Riviera" height="90">
+            <div>
+                <h1>GOVERNO DA CIDADE</h1>
+                <h2>RIVIERA</h2>
+                <p>TRABALHANDO POR TODOS, TODOS OS DIAS.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li class="dropdown">
+                            <a href="#" id="governo-button">GOVERNO <i class="fa-solid fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-landmark"></i> Administração</h4>
+                                    <ul>
+                                        <li><a href="#">Prefeito</a></li>
+                                        <li><a href="#">Vice-Prefeito</a></li>
+                                        <li><a href="#">Secretarias</a></li>
+                                        <li><a href="#">Organograma</a></li>
+                                        <li><a href="#">Agenda Oficial</a></li>
+                                        <li><a href="#">Plano de Governo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-gavel"></i> Legislação</h4>
+                                    <ul>
+                                        <li><a href="constituicao.html" id="constituicao-btn">Constituição da Cidade</a></li>
+                                        <li><a href="codigo-penal.html">Código Penal</a></li>
+                                        <li><a href="codigo-civil.html" class="active">Código Civil</a></li>
+                                        <li><a href="#">Código Processual Penal</a></li>
+                                        <li><a href="codigo-de-transito.html">Código de Trânsito</a></li>
+                                        <li><a href="calculadora-penal.html">Calculadora Unificada</a></li>
+                                        <li><a href="leis-municipais.html">Leis Municipais</a></li>
+                                        <li><a href="#">Decretos</a></li>
+                                        <li><a href="#">Portarias</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-building-columns"></i> Órgãos Públicos</h4>
+                                    <ul>
+                                        <li><a href="#">Polícia Militar</a></li>
+                                        <li><a href="#">Polícia Civil</a></li>
+                                        <li><a href="#">Tribunal de Justiça</a></li>
+                                        <li><a href="#">Ministério Público</a></li>
+                                        <li><a href="#">Hospital Municipal</a></li>
+                                        <li><a href="#">Corpo de Bombeiros</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    <li><a href="cidadao.html">CIDADÃO</a></li>
+                    <li><a href="transparencia.html">TRANSPARÊNCIA</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="player-count">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="player-count-span">--/--</span>
+                </div>
+                <a href="#" class="btn btn-outline">SERVIDOR DA CIDADE</a>
+                <a href="#" class="btn btn-primary btn-vip">LOJA VIP</a>
+                <a href="#" id="area-governo-btn" class="btn btn-primary">ÁREA DO GOVERNO</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="codigo-civil-container">
+        <div class="header-portal">
+            <h1>Consulta ao Código Civil</h1>
+            <p>Pesquise artigos, assuntos ou palavras-chave de forma rápida e intuitiva.</p>
+        </div>
+
+        <div class="regra-geral-card">
+            <h2>⚖️ REGRA GERAL DE APLICAÇÃO</h2>
+            <p><strong>§ 1º</strong> A aplicação de multa civil deverá considerar a gravidade da conduta, o prejuízo causado, a reincidência e a capacidade econômica das partes.</p>
+            <p><strong>§ 2º</strong> O juiz poderá reduzir ou aumentar a indenização quando houver justificativa fundamentada.</p>
+            <p><strong>§ 3º</strong> A multa civil não substitui a obrigação de reparar o dano.</p>
+            <p><strong>§ 4º</strong> Quando uma mesma conduta configurar infração civil e crime previsto no Código Penal, poderão ser aplicadas simultaneamente as consequências previstas em ambas as legislações.</p>
+            <p><strong>§ 5º</strong> Nenhuma pessoa poderá sofrer prisão exclusivamente por uma dívida civil, salvo situações que estejam expressamente previstas na legislação da cidade e sejam compatíveis com a Constituição do RP.</p>
+        </div>
+
+        <div class="disposicoes-gerais">
+            <h2>DISPOSIÇÕES GERAIS</h2>
+            <p>O presente Código Civil estabelece normas referentes às relações entre cidadãos, propriedades, contratos, empresas, obrigações, responsabilidades, família, patrimônio e demais relações de natureza civil dentro da cidade.</p>
+            <p>As penalidades previstas neste Código possuem natureza civil, podendo ser aplicadas independentemente de eventual responsabilização criminal prevista no Código Penal.</p>
+        </div>
+
+        <div class="controles-busca">
+            <div class="campo-pesquisa">
+                <input type="text" id="searchInput" placeholder="Pesquise por artigo, assunto ou palavra-chave...">
+                <button class="limpar-busca" title="Limpar pesquisa">&times;</button>
+            </div>
+            <div class="filtros">
+                <select id="categoryFilter">
+                    <option value="">Toda as Categorias/Livros</option>
+                </select>
+                <select id="severityFilter">
+                    <option value="">Toda as Gravidades</option>
+                    <option value="Baixa">Baixa</option>
+                    <option value="Média">Média</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Muito Alta">Muito Alta</option>
+                </select>
+                <select id="natureFilter">
+                    <option value="">Toda as Naturezas</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="resultados-info">
+            <span id="resultCount"></span>
+        </div>
+
+        <div id="artigosGrid" class="artigos-grid">
+            <!-- Os cards dos artigos serão inseridos aqui pelo JavaScript -->
+        </div>
+
+        <div id="noResults" class="sem-resultados" style="display: none;">
+            <h2>Nenhum resultado encontrado</h2>
+            <p>Tente ajustar seus termos de pesquisa ou filtros.</p>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button id="modalClose" class="modal-close">&times;</button>
+            </div>
+            <div id="modalBody" class="modal-body">
+                <!-- Detalhes do artigo serão inseridos aqui -->
+            </div>
+            <div class="modal-footer">
+                <button id="copyBtn" class="btn-copiar">Copiar Artigo</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="src/codigo-civil.js"></script>
+    <script type="module" src="/src/main.js"></script>
+
+    <!-- Modal de Autenticação -->
+    <div id="auth-modal" class="modal-overlay" style="display: none;">
+        <div class="auth-modal-content">
+            <span class="close-button">&times;</span>
+            
+            <!-- Formulário de Login -->
+            <form id="login-form">
+                <h2>Acessar Painel</h2>
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn-primary">Entrar</button>
+                <p class="switch-form-text">Não tem uma conta? <a href="#" id="show-register">Cadastre-se</a></p>
+            </form>
+
+            <!-- Formulário de Cadastro -->
+            <form id="register-form" style="display: none;">
+                <h2>Criar Conta</h2>
+                <div class="form-group">
+                    <label for="register-name">Nome Completo</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Senha</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <button type="submit" class="btn-primary">Cadastrar</button>
+                <p class="switch-form-text">Já tem uma conta? <a href="#" id="show-login">Faça o login</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

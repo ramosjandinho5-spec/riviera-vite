@@ -1,0 +1,103 @@
+/* Estilos para a página de detalhes da lei (lei-page) */
+
+.lei-page main {
+    padding: 2rem 1rem;
+}
+
+.lei-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #1a1a1d; /* Um fundo ligeiramente mais claro para o "papel" */
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.btn-retornar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    color: #a9a9a9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.btn-retornar:hover {
+    color: #fff;
+}
+
+.conteudo-lei header.banner-lei {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #1a1a1d; /* Mesma cor do fundo do "papel" para cobrir o texto que rola */
+    border-bottom: 1px solid #444;
+    padding: 1.5rem 0; /* Ajuste no padding */
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.lei-identificacao h2 {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.lei-titulo-descricao h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.lei-descricao {
+    font-size: 1.1rem;
+    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.conteudo-lei section {
+    margin-bottom: 2rem;
+}
+
+.conteudo-lei h3 {
+    font-size: 1.5rem;
+    color: #8a2be2; /* Roxo para destaque */
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5rem;
+}
+
+.conteudo-lei h4 {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.conteudo-lei p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #ddd;
+    margin-bottom: 1rem;
+}
+
+.conteudo-lei strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.conteudo-lei ul {
+    list-style-position: inside;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.conteudo-lei ul li {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #ddd;
+    margin-bottom: 0.5rem;
+}

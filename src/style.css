@@ -1,0 +1,1434 @@
+/* Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease-out; /* A TRANSIÇÃO QUE FALTAVA */
+}
+
+#preloader.hidden {
+    opacity: 0;
+    pointer-events: none; /* Impede interação após o fade out */
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-left-color: var(--primary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Variáveis de Cor */
+:root {
+    --background-color: #111827;
+    --card-bg: #1f2937;
+    --border-color: #374151;
+    --primary-color: #9333ea;
+    --text-color: #d1d5db;
+    --text-light: #9ca3af;
+}
+
+.roxo {
+    color: var(--cor-destaque);
+}
+
+/* Reset e Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+body.preloading {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #a855f7;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    gap: 2rem; /* Adiciona um espaço entre logo e o resto */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0; /* Impede o logo de encolher */
+}
+
+.logo img {
+    height: 70px;
+}
+
+.logo h1, .logo h2, .logo p {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.logo h1 {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.logo h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+.logo p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Navegação */
+nav ul {
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    white-space: nowrap; /* Impede que o texto do link quebre a linha */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: max-content;
+    max-width: 800px;
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-column {
+    min-width: 200px;
+}
+
+.dropdown-column h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-column ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.dropdown-column a {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.dropdown-column a:hover {
+    color: #fff;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.player-count {
+    background-color: var(--card-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0; /* Impede que o contador encolha */
+    white-space: nowrap;
+}
+
+/* Estilos dos Botões */
+.btn, .btn-outline, .btn-primary {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    border: 2px solid transparent; /* Borda base transparente */
+    flex-shrink: 0; /* Impede que os botões encolham */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #a855f7;
+    border-color: #a855f7;
+    color: white;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Estilos para o botão VIP */
+.btn-vip {
+    background: linear-gradient(45deg, #861DE9, #C683FE);
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-vip:hover {
+    background: linear-gradient(45deg, #FDB813, #FFD700);
+    color: #111827;
+    box-shadow: 0 6px 20px rgba(253, 184, 19, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-vip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.7s ease-in-out;
+}
+
+.btn-vip:hover::before {
+    left: 100%;
+}
+
+/* Conteúdo Principal */
+main {
+    padding: 0;
+}
+
+/* Rodapé */
+footer {
+    background-color: #1a1a1a;
+    color: #aaa;
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid #333;
+    margin-top: 4rem;
+}
+
+/* Seção Hero */
+.hero {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Movido para a esquerda */
+    text-align: left; /* Alinhado à esquerda */
+    padding: 0 4rem; /* Aumentado o padding lateral */
+    background: url('/src/assets/background.png') no-repeat center center/cover;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 1rem 0;
+    text-transform: uppercase;
+}
+
+.hero-content .line-1 {
+    display: block;
+    color: #fff;
+}
+
+.hero-content .line-2 {
+    display: block;
+    color: var(--primary-color);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 1rem 0 2rem 0; /* Removido o centramento automático */
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: flex-start; /* Alinhado à esquerda */
+    gap: 1rem;
+}
+
+.hero-buttons .btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: 1px solid var(--primary-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-shadow: none;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.hero-buttons .btn:hover {
+    background-color: #a855f7;
+    border-color: #a855f7;
+}
+
+/* Seção de Acesso Rápido */
+.quick-access {
+    padding: 4rem 2rem;
+    background-color: var(--background-color);
+}
+
+.quick-access-cards {
+    display: grid;
+    /* Tenta encaixar o máximo de colunas com no mínimo 230px */
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+    /* Aumenta a largura máxima para ajudar a manter os cards em uma linha */
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.quick-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.quick-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.quick-card-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.quick-card-content h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.quick-card-content p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Seção "Trabalhe por Riviera" */
+.work-for-reviera {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.work-for-reviera h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.work-for-reviera > p {
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.job-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.job-column {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-column:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px -5px rgba(147, 51, 234, 0.4);
+}
+
+.job-column > i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.job-column h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.job-column p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.job-column ul {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.job-column ul li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.job-column ul li i {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
+.btn-form {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    align-self: flex-start;
+}
+
+.btn-form:hover {
+    color: #a855f7;
+}
+
+.btn-form i {
+    font-size: 0.8rem;
+    margin-left: 0.25rem;
+}
+
+/* Seção de Notícias */
+.news-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.news-section h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+/* --- Modal Styles --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: flex; /* Use flexbox for centering */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 750px; /* Aumentado para acomodar o conteúdo */
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slide-down 0.3s ease-out;
+}
+
+.close-modal-btn {
+    color: #aaa;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal-btn:hover,
+.close-modal-btn:focus {
+    color: white;
+    text-decoration: none;
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.news-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.news-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.news-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 1.5rem;
+}
+
+.news-content h3 {
+    font-size: 1.25rem;
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+
+.news-content p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.read-more {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+
+.read-more:hover {
+    color: #a855f7;
+}
+
+.read-more i {
+    margin-left: 0.25rem;
+}
+
+/* Estilos para o modal de formulário com iframe */
+#form-modal .modal-content,
+#form-modal-policia .modal-content {
+    width: 90%;
+    max-width: 600px; /* Largura do modal */
+    height: 80vh; /* Altura baseada na altura da tela */
+    max-height: 700px; /* Altura máxima */
+    padding: 0; /* Remove o padding para o iframe ocupar todo o espaço */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Evita barras de rolagem no próprio modal */
+}
+
+#form-modal iframe,
+#form-modal-policia iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px; /* Arredonda o iframe junto com o modal */
+}
+
+/* Ajusta a posição do botão de fechar para o novo layout sem padding */
+#form-modal .close-btn,
+#form-modal-policia .close-btn-policia {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 10; /* Garante que fique sobre o iframe */
+    color: #fff; /* Cor mais visível sobre fundos escuros */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+/* Estilos para Modais */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h2 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.modal-content p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.close-button, .close-modal-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-button:hover, .close-modal-btn:hover {
+    color: #fff;
+}
+
+/* Ajuste específico para o modal "Sobre a Cidade" */
+#about-city-card .modal-content {
+    max-width: 650px;
+}
+
+#about-city-card .modal-content p {
+    line-height: 1.8;
+}
+
+/* Ajuste específico para o modal de candidatura Staff */
+#staff-modal .modal-content {
+    max-width: 500px;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+#staff-modal form {
+    gap: 0.8rem; /* Reduz o espaçamento vertical entre os campos */
+}
+
+/* Estilos para Formulários dentro de Modais */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: #111827;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.75rem;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.3);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.modal-content form .btn {
+    align-self: flex-start;
+    margin-top: 1rem;
+}
+
+/* Seção de Mídia (Riviera TV) */
+.media-section {
+    padding: 4rem 2rem;
+    background-color: #111827; /* Um fundo ligeiramente diferente para destacar */
+}
+
+.media-section .section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.tv-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Coluna do vídeo 2x maior que a da playlist */
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.video-player {
+    position: relative;
+    padding-top: 56.25%; /* Proporção 16:9 */
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-playlist {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background-color: var(--card-bg);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    border: 1px solid var(--border-color);
+}
+
+.playlist-item:hover {
+    background-color: #374151;
+    transform: translateY(-2px);
+}
+
+.playlist-item img {
+    width: 100px; /* Tamanho fixo para as thumbnails */
+    height: 56px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.playlist-item .playlist-info h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* --- INÍCIO: Estilos do Carrossel de Notícias --- */
+.news-image-carousel {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Mesma altura da imagem de notícia padrão */
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 100%;
+    display: none; /* Esconde por padrão */
+}
+
+.carousel-item.active {
+    display: block; /* Mostra o item ativo */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    line-height: 1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.news-card:hover .carousel-control {
+    opacity: 1;
+    visibility: visible;
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator.active {
+    background-color: white;
+}
+
+.news-image-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #2a3444; /* Um cinza escuro para o placeholder */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-light);
+}
+/* --- FIM: Estilos do Carrossel de Notícias --- */
+
+/* --- INÍCIO: Estilos do Painel de Admin (TV) --- */
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espaçamento entre o checkbox e o label */
+}
+
+.form-group-checkbox input[type="checkbox"] {
+    width: auto; /* Garante que o checkbox não ocupe a largura total */
+    margin-bottom: 0;
+}
+
+.form-group-checkbox label {
+    margin-bottom: 0; /* Remove a margem inferior do label */
+    font-weight: normal;
+}
+
+.section-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 2rem 0;
+}
+
+#videos-list-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.video-item {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid transparent; /* Borda para indicar destaque */
+    transition: border-color 0.3s;
+}
+
+.video-item.highlight {
+    border-left-color: var(--primary-color);
+}
+
+.video-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-item-info span {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.video-item-info small {
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+.video-item-actions button {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    transition: color 0.3s;
+}
+
+.video-item-actions button:hover {
+    color: var(--primary-color);
+}
+
+.video-item-actions .delete-btn:hover {
+    color: #ef4444; /* red-500 */
+}
+
+/* Estilos para o header da seção de TV */
+#tv-management .header-container {
+    display: flex;
+    justify-content: flex-end; /* Alinha o botão à direita */
+    margin-bottom: 1rem;
+}
+
+#add-video-btn {
+    margin-bottom: 0; /* Remove a margem que poderia estar afetando o alinhamento */
+}
+
+/* Ajustes gerais para o admin */
+.admin-container h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+/* --- FIM: Estilos do Painel de Admin (TV) --- */
+
+/* --- INÍCIO: Estilos do Music Player --- */
+.music-player {
+    position: absolute;
+    top: 50%;
+    right: 4rem;
+    transform: translateY(-50%);
+    width: 450px;
+    background: rgba(25, 25, 35, 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    z-index: 5;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.player-artwork {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.player-artwork img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(147, 51, 234, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.player-artwork:hover .play-button-overlay {
+    opacity: 1;
+}
+
+.play-button-overlay i {
+    font-size: 48px;
+    color: white;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.track-details .artist {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.track-details h3 {
+    font-size: 1.4rem;
+    color: white;
+    margin: 4px 0;
+}
+
+.track-details p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+.progress-container {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.progress-bar {
+    background: rgba(255, 255, 255, 0.2);
+    height: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.progress {
+    background: var(--primary-color);
+    width: 0;
+    height: 100%;
+    border-radius: 5px;
+    position: relative;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(147, 51, 234, 0.8);
+}
+
+.time-stamps {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.control-btn:hover {
+    color: white;
+}
+
+.control-btn.play-pause {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
+}
+
+.control-btn.play-pause:hover {
+    background: #a855f7;
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* --- FIM: Estilos do Music Player --- */
+
+/* --- INÍCIO: Media Queries para Responsividade --- */
+
+/* Para tablets e telas menores (até 1024px) */
+@media (max-width: 1024px) {
+    /* Ajusta o header para evitar overflow */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    nav ul {
+        display: none; /* Esconde o menu para futuro menu hamburguer */
+    }
+
+    .header-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.5rem;
+    }
+
+    /* Força o .hero a empilhar seu conteúdo */
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        height: auto; /* Altura automática para caber o conteúdo */
+        padding: 4rem 2rem; /* Espaçamento vertical */
+    }
+
+    /* Desprende o music player da lateral e o coloca no fluxo normal */
+    .music-player {
+        position: relative; /* Remove o 'absolute' */
+        top: auto;
+        right: auto;
+        transform: none; /* Remove o 'translateY' */
+        margin: 3rem auto 0; /* Margem para separar do conteúdo do hero */
+        width: 90%;
+        max-width: 450px; /* Mantém um tamanho máximo razoável */
+    }
+
+    /* Ajusta o layout da Riviera TV */
+    .tv-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Para tablets e celulares maiores (até 768px) */
+@media (max-width: 768px) {
+    /* Organiza os botões do cabeçalho em um grid 2x2 */
+    .header-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    /* Força os grids de cards a terem uma única coluna */
+    .quick-access-cards,
+    .job-columns,
+    .news-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Para celulares (até 480px) */
+@media (max-width: 480px) {
+    .logo img {
+        height: 50px;
+    }
+
+    .logo h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    /* Reduz o padding em seções para telas bem pequenas */
+    .quick-access, .work-for-reviera, .news-section, .media-section {
+        padding: 2rem 1rem;
+    }
+
+    /* Ajusta o music player para um layout mais vertical */
+    .music-player {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .player-artwork {
+        width: 100%;
+        height: auto;
+    }
+
+    .player-info {
+        align-items: center;
+    }
+}

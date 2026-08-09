@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <title>Leis Municipais - Riviera</title>
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/src/header.css">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/leis-municipais.css">
+
+</head>
+<body class="leis-page">
+    <header>
+        <div class="logo">
+            <img src="/src/assets/logo.png" alt="Logo Riviera" height="90">
+            <div>
+                <h1>GOVERNO DA CIDADE</h1>
+                <h2>RIVIERA</h2>
+                <p>TRABALHANDO POR TODOS, TODOS OS DIAS.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li class="dropdown">
+                            <a href="#" id="governo-button">GOVERNO <i class="fa-solid fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-landmark"></i> Administração</h4>
+                                    <ul>
+                                        <li><a href="#">Prefeito</a></li>
+                                        <li><a href="#">Vice-Prefeito</a></li>
+                                        <li><a href="#">Secretarias</a></li>
+                                        <li><a href="#">Organograma</a></li>
+                                        <li><a href="#">Agenda Oficial</a></li>
+                                        <li><a href="#">Plano de Governo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-gavel"></i> Legislação</h4>
+                                    <ul>
+                                        <li><a href="constituicao.html" id="constituicao-btn">Constituição da Cidade</a></li>
+                                        <li><a href="codigo-penal.html">Código Penal</a></li>
+                                        <li><a href="codigo-civil.html">Código Civil</a></li>
+                                        <li><a href="#">Código Processual Penal</a></li>
+                                        <li><a href="codigo-de-transito.html">Código de Trânsito</a></li>
+                                        <li><a href="calculadora-penal.html">Calculadora Unificada</a></li>
+                                        <li><a href="leis-municipais.html">Leis Municipais</a></li>
+                                        <li><a href="#">Decretos</a></li>
+                                        <li><a href="#">Portarias</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-building-columns"></i> Órgãos Públicos</h4>
+                                    <ul>
+                                        <li><a href="#">Polícia Militar</a></li>
+                                        <li><a href="#">Polícia Civil</a></li>
+                                        <li><a href="#">Tribunal de Justiça</a></li>
+                                        <li><a href="#">Ministério Público</a></li>
+                                        <li><a href="#">Hospital Municipal</a></li>
+                                        <li><a href="#">Corpo de Bombeiros</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    <li><a href="cidadao.html">CIDADÃO</a></li>
+                    <li><a href="#">TRANSPARÊNCIA</a></li>
+                    <li><a href="#">CONTATO</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="player-count">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="player-count-span">--/--</span>
+                </div>
+                <a href="#" class="btn btn-outline">SERVIDOR DA CIDADE</a>
+                <a href="#" class="btn btn-primary btn-vip">LOJA VIP</a>
+            <a href="#" id="area-governo-btn" class="btn btn-primary">ÁREA DO GOVERNO</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-banner-leis">
+            <div class="hero-content">
+                <h1>Leis Municipais</h1>
+            </div>
+        </section>
+
+        <div class="leis-container">
+            <aside class="filtros-lateral">
+                <h3>Filtros</h3>
+                <div class="filtro-grupo">
+                    <label for="search-nome">Pesquisar por nome</label>
+                    <input type="text" id="search-nome" placeholder="Nome da lei...">
+                </div>
+                <div class="filtro-grupo">
+                    <label for="search-numero">Pesquisar por número</label>
+                    <input type="text" id="search-numero" placeholder="Nº da lei...">
+                </div>
+                <div class="filtro-grupo">
+                    <label for="filtro-categoria">Categoria</label>
+                    <select id="filtro-categoria">
+                        <option value="todas">Todas</option>
+                        <option value="administracao">Administração Pública</option>
+                        <option value="seguranca">Segurança Pública</option>
+                        <option value="saude">Saúde</option>
+                    </select>
+                </div>
+                <div class="filtro-grupo">
+                    <label for="filtro-status">Status</label>
+                    <select id="filtro-status">
+                        <option value="todos">Todos</option>
+                        <option value="vigente">Vigente</option>
+                        <option value="alterada">Alterada</option>
+                        <option value="revogada">Revogada</option>
+                        <option value="elaboracao">Em elaboração</option>
+                    </select>
+                </div>
+                <div class="filtro-grupo">
+                    <label>Ordenar por</label>
+                    <div class="radio-group">
+                        <input type="radio" id="ordem-numero" name="ordenacao" value="numero" checked>
+                        <label for="ordem-numero">Número</label>
+                        <input type="radio" id="ordem-data" name="ordenacao" value="data">
+                        <label for="ordem-data">Data</label>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="lista-leis">
+                <div class="cards-grid">
+                    <div class="card-lei" data-status="vigente">
+                        <div class="card-header">
+                            <span class="lei-numero">Lei Complementar nº 001/2026</span>
+                            <span class="lei-status vigente">🟢 Vigente</span>
+                        </div>
+                        <p class="lei-categoria"><i class="fa-solid fa-landmark"></i> Administração Pública</p>
+                        <h3 class="lei-nome">Lei da Organização da Administração Pública e dos Princípios da Administração Municipal</h3>
+                        <p class="lei-resumo">Dispõe sobre os princípios da Administração Pública, estabelece que nenhuma autoridade está acima da lei, define os deveres dos agentes públicos e regulamenta as competências do Secretário de Segurança Pública.</p>
+                        <a href="lei-001-2026.html" class="btn-visualizar">Visualizar Lei</a>
+                    </div>
+                    <div class="card-lei" data-status="vigente">
+                        <div class="card-header">
+                            <span class="lei-numero">Lei Complementar nº 002/2026</span>
+                            <span class="lei-status vigente">🟢 Vigente</span>
+                        </div>
+                        <p class="lei-categoria"><i class="fa-solid fa-landmark"></i> Administração Pública</p>
+                        <h3 class="lei-nome">Lei Orgânica do Município</h3>
+                        <p class="lei-resumo">Dispõe sobre a organização político-administrativa da Cidade de Riviera, estabelece a estrutura dos Poderes Municipais, da Administração Pública e dá outras providências.</p>
+                        <a href="lei-002-2026.html" class="btn-visualizar">Visualizar Lei</a>
+                    </div>
+                    <div class="card-lei" data-status="vigente">
+                        <div class="card-header">
+                            <span class="lei-numero">Lei Complementar nº 003/2026</span>
+                            <span class="lei-status vigente">🟢 Vigente</span>
+                        </div>
+                        <p class="lei-categoria"><i class="fa-solid fa-landmark"></i> Administração Pública</p>
+                        <h3 class="lei-nome">Estatuto dos Servidores Públicos</h3>
+                        <p class="lei-resumo">Dispõe sobre os direitos, deveres, responsabilidades e o regime disciplinar dos servidores públicos da Cidade de Riviera.</p>
+                        <a href="lei-003-2026.html" class="btn-visualizar">Visualizar Lei</a>
+                    </div>
+                     <div class="card-lei" data-status="vigente">
+                        <div class="card-header">
+                            <span class="lei-numero">Lei Complementar nº 004/2026</span>
+                            <span class="lei-status vigente">🟢 Vigente</span>
+                        </div>
+                        <p class="lei-categoria"><i class="fa-solid fa-landmark"></i> Administração Pública</p>
+                        <h3 class="lei-nome">Lei da Administração Financeira</h3>
+                        <a href="lei-004-2026.html" class="btn-visualizar">Visualizar Lei</a>
+                    </div>
+                    <div class="card-lei card-categoria" data-status="portal">
+                        <div class="card-header">
+                            <span class="lei-numero">Categoria</span>
+                            <span class="lei-status categoria">Portal</span>
+                        </div>
+                        <p class="lei-categoria"><i class="fa-solid fa-shield-halved"></i> Segurança Pública</p>
+                        <h3 class="lei-nome">Portal de Segurança Pública</h3>
+                        <p class="lei-resumo">Acesse para ver todas as leis, estatutos e regulamentos da área de Segurança Pública.</p>
+                        <a href="seguranca-publica.html" class="btn-visualizar">Acessar Portal</a>
+                    </div>
+                     <div class="card-lei" data-status="vigente">
+                        <div class="card-header">
+                            <span class="lei-numero">Lei Complementar nº 008/2026</span>
+                            <span class="lei-status vigente">🟢 Vigente</span>
+                        </div>
+                        <h3 class="lei-nome">Lei do Hospital Municipal</h3>
+                        <p class="lei-resumo">Dispõe sobre a organização, gestão e funcionamento do Hospital Municipal da Cidade de Riviera.</p>
+                        <a href="lei-008-2026.html" class="btn-visualizar">Visualizar Lei</a>
+                    </div>
+                    <div class="card-lei" data-status="vigente">
+                        <div class="card-header">
+                            <span class="lei-numero">Lei Complementar nº 009/2026</span>
+                            <span class="lei-status vigente">🟢 Vigente</span>
+                        </div>
+                        <p class="lei-categoria"><i class="fa-solid fa-landmark-dome"></i> Estrutura dos Poderes</p>
+                        <h3 class="lei-nome">Lei do Congresso Federal</h3>
+                        <p class="lei-resumo">Define a estrutura, competências e funcionamento do Congresso Federal.</p>
+                        <a href="lei-009-2026.html" class="btn-visualizar">Visualizar Lei</a>
+                    </div>
+                    <div class="card-lei" data-status="vigente">
+                        <div class="card-header">
+                            <span class="lei-numero">Lei Complementar nº 010/2026</span>
+                            <span class="lei-status vigente">🟢 Vigente</span>
+                        </div>
+                        <p class="lei-categoria"><i class="fa-solid fa-scale-balanced"></i> Estrutura dos Poderes</p>
+                        <h3 class="lei-nome">Lei do Tribunal de Justiça</h3>
+                        <p class="lei-resumo">Dispõe sobre a organização, competências e funcionamento do Tribunal de Justiça do município.</p>
+                        <a href="lei-010-2026.html" class="btn-visualizar">Visualizar Lei</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

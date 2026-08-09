@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <title>Código de Processo Penal - Riviera</title>
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/src/codigo-processo-penal.css">
+    <style>
+        html { background-color: #111; }
+        body.preloading { opacity: 0; }
+    </style>
+</head>
+<body class="preloading">
+<body class="codigo-processo-penal-page">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="/src/assets/logo.png" alt="Logo Riviera" height="90">
+            <div>
+                <h1>GOVERNO DA CIDADE</h1>
+                <h2>RIVIERA</h2>
+                <p>TRABALHANDO POR TODOS, TODOS OS DIAS.</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li class="dropdown">
+                    <a href="#" id="governo-button">GOVERNO <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <h4><i class="fa-solid fa-landmark"></i> Administração</h4>
+                            <ul>
+                                <li><a href="#">Prefeito</a></li>
+                                <li><a href="#">Vice-Prefeito</a></li>
+                                <li><a href="#">Secretarias</a></li>
+                                <li><a href="#">Organograma</a></li>
+                                <li><a href="#">Agenda Oficial</a></li>
+                                <li><a href="#">Plano de Governo</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4><i class="fa-solid fa-gavel"></i> Legislação</h4>
+                            <ul>
+                                <li><a href="constituicao.html">Constituição da Cidade</a></li>
+                                <li><a href="codigo-penal.html">Código Penal</a></li>
+                                <li><a href="#">Código Civil</a></li>
+                                <li><a href="codigo-processo-penal.html" class="active">Código Processual Penal</a></li>
+                                <li><a href="#">Código de Trânsito</a></li>
+                                <li><a href="leis-municipais.html">Leis Municipais</a></li>
+                                <li><a href="#">Decretos</a></li>
+                                <li><a href="#">Portarias</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4><i class="fa-solid fa-building-columns"></i> Institucional</h4>
+                            <ul>
+                                <li><a href="#">Sobre a Cidade</a></li>
+                                <li><a href="#">Símbolos Oficiais</a></li>
+                                <li><a href="#">Hino da Cidade</a></li>
+                                <li><a href="#">Galeria de Prefeitos</a></li>
+                                <li><a href="#">Estrutura Organizacional</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#">CIDADÃO</a></li>
+                <li><a href="#">TRANSPARÊNCIA</a></li>
+                <li><a href="#">NOTÍCIAS</a></li>
+                <li><a href="#">CONTATO</a></li>
+            </ul>
+        </nav>
+        <div class="header-buttons">
+            <div class="player-count">
+                <i class="fa-solid fa-users"></i>
+                <span><span id="player-online">123</span>/<span id="player-max">500</span></span>
+            </div>
+            <a href="#" class="btn-loja-vip">LOJA VIP</a>
+            <a href="#" class="btn-area-gov">ÁREA DO GOVERNO</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-banner-leis">
+            <div class="hero-content">
+                <h1>Código de Processo Penal</h1>
+                <p>O Código de Processo Penal estabelece as normas e procedimentos para a investigação, o processo e o julgamento dos crimes na Cidade de Riviera.</p>
+            </div>
+        </section>
+
+        <div class="leis-container">
+            <aside class="filtros-lateral">
+                <h3>Filtros</h3>
+                <div class="filtro-grupo">
+                    <label for="search-nome">Pesquisar por nome</label>
+                    <input type="text" id="search-nome" placeholder="Nome do artigo...">
+                </div>
+                <div class="filtro-grupo">
+                    <label for="search-numero">Pesquisar por número</label>
+                    <input type="text" id="search-numero" placeholder="Nº do artigo...">
+                </div>
+            </aside>
+
+            <section class="lista-leis">
+                <div class="cards-grid">
+                    
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

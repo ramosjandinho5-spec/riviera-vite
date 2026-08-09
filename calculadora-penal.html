@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <title>Calculadora Penal - Riviera</title>
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/src/header.css">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/calculadora-penal.css">
+
+</head>
+<body class="calculadora-penal-page">
+    <header>
+        <div class="logo">
+            <img src="/src/assets/logo.png" alt="Logo Riviera" height="90">
+            <div>
+                <h1>GOVERNO DA CIDADE</h1>
+                <h2>RIVIERA</h2>
+                <p>TRABALHANDO POR TODOS, TODOS OS DIAS.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li class="dropdown">
+                            <a href="#" id="governo-button">GOVERNO <i class="fa-solid fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-landmark"></i> Administração</h4>
+                                    <ul>
+                                        <li><a href="#">Prefeito</a></li>
+                                        <li><a href="#">Vice-Prefeito</a></li>
+                                        <li><a href="#">Secretarias</a></li>
+                                        <li><a href="#">Organograma</a></li>
+                                        <li><a href="#">Agenda Oficial</a></li>
+                                        <li><a href="#">Plano de Governo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-gavel"></i> Legislação</h4>
+                                    <ul>
+                                        <li><a href="constituicao.html" id="constituicao-btn">Constituição da Cidade</a></li>
+                                        <li><a href="codigo-penal.html">Código Penal</a></li>
+                                        <li><a href="codigo-civil.html">Código Civil</a></li>
+                                        <li><a href="#">Código Processual Penal</a></li>
+                                        <li><a href="codigo-de-transito.html">Código de Trânsito</a></li>
+                                        <li><a href="calculadora-penal.html">Calculadora Unificada</a></li>
+                                        <li><a href="leis-municipais.html">Leis Municipais</a></li>
+                                        <li><a href="#">Decretos</a></li>
+                                        <li><a href="#">Portarias</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-building-columns"></i> Órgãos Públicos</h4>
+                                    <ul>
+                                        <li><a href="#">Polícia Militar</a></li>
+                                        <li><a href="#">Polícia Civil</a></li>
+                                        <li><a href="#">Tribunal de Justiça</a></li>
+                                        <li><a href="#">Ministério Público</a></li>
+                                        <li><a href="#">Hospital Municipal</a></li>
+                                        <li><a href="#">Corpo de Bombeiros</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    <li><a href="cidadao.html">CIDADÃO</a></li>
+                    <li><a href="#">TRANSPARÊNCIA</a></li>
+                    <li><a href="#">CONTATO</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="player-count">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="player-count-span">--/--</span>
+                </div>
+                <a href="#" class="btn btn-outline">SERVIDOR DA CIDADE</a>
+                <a href="#" class="btn btn-primary">LOJA VIP</a>
+                <a href="#" class="btn btn-primary" id="area-governo-btn">ÁREA DO GOVERNO</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="calculadora-main">
+        <div class="coluna-esquerda">
+            <div class="seletor-codigo-container">
+                <label for="seletor-codigo">Selecione o Código:</label>
+                <select id="seletor-codigo">
+                    <option value="penal" selected>Código Penal</option>
+                    <option value="transito">Código de Trânsito</option>
+                    <option value="civil">Código Civil</option>
+                </select>
+            </div>
+            <div class="pesquisa-container">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" id="search-crime" placeholder="Pesquisar por artigo, nome ou palavra-chave...">
+            </div>
+            <div class="categorias-container">
+                <h3>Categorias</h3>
+                <div class="cards-categorias">
+                    <div class="card-categoria">Crimes Contra a Vida</div>
+                    <div class="card-categoria">Crimes Contra a Pessoa</div>
+                    <div class="card-categoria">Crimes Contra a Honra</div>
+                </div>
+            </div>
+            <div class="mais-utilizados-container">
+                <h3>Mais Utilizados</h3>
+                <div class="cards-mais-utilizados">
+                    <div class="card-utilizado">🔴 Homicídio</div>
+                    <div class="card-utilizado">🟠 Lesão Corporal</div>
+                    <div class="card-utilizado">🟡 Furto</div>
+                    <div class="card-utilizado">🟢 Roubo</div>
+                    <div class="card-utilizado">🔵 Desacato</div>
+                    <div class="card-utilizado">🟣 Resistência</div>
+                    <div class="card-utilizado">🚗 Direção Perigosa</div>
+                </div>
+            </div>
+            <div class="prisoes-salvas-container">
+                <h3>Prisões Salvas</h3>
+                <div id="prisoes-salvas-lista">
+                    <!-- Prisões salvas serão inseridas aqui pelo JS -->
+                </div>
+            </div>
+        </div>
+
+        <div class="coluna-central">
+            <h2>Resultados da Pesquisa</h2>
+            <div id="resultados-lista" class="resultados-lista">
+                <div class="resultado-item">
+                    <div class="resultado-header">
+                        <span class="artigo">ART. 121</span>
+                        <span class="nome-crime">Homicídio</span>
+                    </div>
+                    <p class="resumo">Matar pessoa.</p>
+                    <div class="resultado-detalhes">
+                        <span>Pena: 30</span>
+                        <span>Multa: 50.000</span>
+                    </div>
+                    <button class="btn-adicionar">Adicionar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="coluna-direita">
+            <h2>Resumo da Prisão</h2>
+            <div class="resumo-prisao-container">
+                <div id="resumo-lista" class="resumo-lista">
+                </div>
+                <div class="resumo-totais">
+                    <div class="total-item">
+                        <span>Pena Total:</span>
+                        <span id="pena-total">0</span>
+                    </div>
+                    <div class="total-item">
+                        <span>Multa Total:</span>
+                        <span id="multa-total">R$ 0</span>
+                    </div>
+                    <div class="total-item">
+                        <span>Fiança:</span>
+                        <span id="fianca-status">Não Aplicável</span>
+                    </div>
+                    <div class="total-item">
+                        <span>Total de Artigos:</span>
+                        <span id="artigos-total">0</span>
+                    </div>
+                </div>
+                <div class="resumo-botoes">
+                    <button class="btn-salvar">Salvar</button>
+                    <button class="btn-copiar">Copiar Resultado</button>
+                    <button class="btn-pdf">Baixar PDF</button>
+                    <button class="btn-limpar">Limpar Tudo</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/calculadora-penal.js"></script>
+
+    <div id="id-modal" class="modal-container" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>Identificação do Indivíduo</h2>
+            <p>Por favor, insira o ID do indivíduo para registrar a ocorrência.</p>
+            <input type="number" id="player-id-input" placeholder="Digite o ID...">
+            <div class="modal-botoes">
+                <button id="confirm-id-btn">Confirmar e Adicionar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Salvar Prisão -->
+    <div id="save-modal" class="modal-container" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>Salvar Ocorrência</h2>
+            <p>Digite um nome para identificar esta ocorrência salva.</p>
+            <input type="text" id="save-name-input" placeholder="Ex: Prisão do Fulano...">
+            <div class="modal-botoes">
+                <button id="confirm-save-btn">Salvar</button>
+                <button id="cancel-save-btn" class="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

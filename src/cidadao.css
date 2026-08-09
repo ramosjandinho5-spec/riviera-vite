@@ -1,0 +1,750 @@
+/* Estilos para o Portal do Cidadão */
+:root {
+    --cor-primaria: #9333ea; /* Roxo */
+    --cor-secundaria: #1f2937; /* Cinza escuro para cards */
+    --cor-fundo: #111827; /* Fundo principal */
+    --cor-texto: #d1d5db; /* Cinza claro */
+    --cor-titulo: #f9fafb; /* Branco */
+    --cor-sucesso: #10b981; /* Verde */
+    --cor-alerta: #f59e0b; /* Amarelo */
+    --cor-borda: #374151;
+}
+
+#portal-cidadao {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portal-banner {
+    width: 100%;
+    min-height: 350px;
+    background: url('/src/assets/portal.png') no-repeat center center/cover;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portal-section {
+    margin-bottom: 4rem;
+}
+
+.portal-section h2 {
+    font-size: 2.2rem;
+    color: var(--cor-primaria);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.portal-section .section-description {
+    color: var(--cor-texto);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Layout customizado para a seção "Primeiros Passos" */
+.primeiros-passos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.primeiros-passos-grid .card-main {
+    grid-row: span 3; /* Faz o card principal ocupar a altura dos 3 laterais */
+    display: flex;
+    flex-direction: column;
+}
+
+.primeiros-passos-grid .side-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.primeiros-passos-grid .card-side {
+    flex-grow: 1;
+}
+
+.card {
+    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-borda);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(147, 51, 234, 0.1);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    color: var(--cor-titulo);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card p {
+    color: var(--cor-texto);
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.card .btn {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: auto;
+}
+
+.card .btn:hover {
+    background-color: #a855f7;
+}
+
+/* Estilos específicos para cards de emprego */
+.emprego-card .status {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.emprego-card .status.aberto {
+    color: var(--cor-sucesso);
+}
+.emprego-card .status.fechado {
+    color: var(--cor-alerta);
+}
+.emprego-card .requisitos {
+    font-size: 0.9rem;
+    color: #9ca3af;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para o Accordion (FAQ) */
+.accordion-item {
+    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-borda);
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    color: var(--cor-titulo);
+    transition: background-color 0.3s;
+}
+
+.accordion-header:hover {
+    background-color: #2a374a;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    padding: 0 1.5rem;
+}
+
+.accordion-content p {
+    padding-bottom: 1.5rem;
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 300px; /* Ajuste conforme necessário */
+}
+
+.accordion-header .icon {
+    transition: transform 0.5s ease;
+}
+
+.accordion-item.active .accordion-header .icon {
+    transform: rotate(180deg);
+}
+
+/* Estilos para o Modal "Como Começar" */
+.passos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.passo {
+    text-align: center;
+}
+
+.passo img {
+    width: 100%;
+    height: 200px; /* Aumentei a altura */
+    object-fit: contain; /* Alterado para não cortar a imagem */
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #1f2937; /* Cor de fundo para combinar com o card */
+}
+
+.passo h3 {
+    font-size: 1.2rem;
+    color: var(--cor-titulo);
+    margin-bottom: 0.5rem;
+}
+
+.passo p {
+    color: var(--cor-texto);
+    font-size: 0.95rem;
+}
+
+/* Estilos para o Slideshow */
+.passo-slideshow {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #1f2937;
+}
+
+.passo-slideshow .slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.passo-slideshow .slide.active {
+    opacity: 1;
+}
+
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    z-index: 10;
+}
+
+.slide-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slide-btn.prev {
+    left: 10px;
+    border-radius: 5px 0 0 5px;
+}
+
+.slide-btn.next {
+    right: 10px;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Estilos para o Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    text-align: center;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1200px;
+    max-height: 80vh;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.lightbox-close:hover {
+    color: #bbb;
+}
+
+
+
+.modal-content.large {
+    max-width: 900px;
+}
+
+/* Estilos para o formulário dentro do modal */
+.modal-content form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 0.8rem 1.5rem; /* Espaçamento vertical e horizontal */
+    margin-top: 1.5rem;
+}
+
+.modal-content .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.modal-content .form-group.full-width {
+    grid-column: 1 / -1; /* Ocupa a largura inteira */
+}
+
+.modal-content label {
+    font-weight: 500;
+    color: var(--cor-texto);
+    font-size: 0.9rem;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 0.7rem;
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    color: var(--cor-texto);
+    font-size: 1rem;
+}
+
+.modal-content textarea {
+    resize: vertical;
+}
+
+.modal-content .btn {
+    grid-column: 1 / -1; /* Botão ocupa a largura inteira */
+    margin-top: 1rem;
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.modal-content .btn:hover {
+    background-color: #a855f7;
+}
+
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #portal-cidadao {
+        padding: 1rem;
+    }
+    .portal-banner h1 {
+        font-size: 2.5rem;
+    }
+    .portal-section h2 {
+        font-size: 1.8rem;
+    }
+    .card-grid, .primeiros-passos-grid {
+        grid-template-columns: 1fr;
+    }
+    .staff-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Estilos para o card "Seja Staff" */
+.staff-card {
+    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-primaria);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.1);
+}
+
+.staff-card-content h3 {
+    color: var(--cor-primaria);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.staff-card-content p {
+    margin: 0;
+    color: var(--cor-texto-secundario);
+}
+
+.btn-staff {
+    flex-shrink: 0;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: 2px solid var(--cor-primaria);
+    color: var(--cor-primaria);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-staff:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-titulo);
+}
+
+/* Estilos do Modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--cor-fundo);
+    margin: 10% auto;
+    padding: 2rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 1rem;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal-btn {
+    color: var(--cor-texto-secundario);
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal-btn:hover,
+.close-modal-btn:focus {
+    color: var(--cor-primaria);
+}
+
+.modal-content h2 {
+    color: var(--cor-primaria);
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--cor-texto-secundario);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-borda);
+    border-radius: 0.5rem;
+    color: var(--cor-texto);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+}
+
+#staff-form .btn {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    background-color: var(--cor-primaria);
+    color: var(--cor-titulo);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#staff-form .btn:hover {
+    background-color: #a855f7;
+    transform: translateY(-2px);
+}
+
+/* Novos estilos para a seção "Primeiros Passos" */
+.primeiros-passos-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 1.5rem;
+}
+
+.card-passo {
+    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-borda);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.card-passo:hover {
+    transform: translateY(-5px);
+    border-color: var(--cor-primaria);
+}
+
+.card-passo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-passo-header .passo-numero {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-primaria);
+}
+
+.card-passo-header i {
+    width: 32px;
+    height: 32px;
+    color: var(--cor-texto);
+}
+
+.card-passo-body {
+    flex-grow: 1;
+}
+
+.card-passo-body h3 {
+    font-size: 1.25rem;
+    color: var(--cor-titulo);
+    margin-bottom: 0.5rem;
+}
+
+.card-passo-body p {
+    font-size: 0.9rem;
+    color: var(--cor-texto);
+    line-height: 1.5;
+}
+
+.card-passo-footer {
+    margin-top: 1.5rem;
+}
+
+.card-passo-footer .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.card-passo-footer .btn i {
+    width: 16px;
+    height: 16px;
+}
+
+/* Estilos para a seção "Sua Jornada" */
+.sua-jornada {
+    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-borda);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.sua-jornada::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(147, 51, 234, 0) 0%, rgba(147, 51, 234, 0.15) 50%, rgba(147, 51, 234, 0) 100%);
+    transform: skewX(-25deg);
+    animation: shine 5s infinite linear;
+}
+
+@keyframes shine {
+    from {
+        left: -80%;
+    }
+    to {
+        left: 120%;
+    }
+}
+
+.jornada-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.jornada-header i {
+    color: var(--cor-primaria);
+    width: 24px;
+    height: 24px;
+}
+
+.jornada-header h3 {
+    font-size: 1.5rem;
+    color: var(--cor-titulo);
+    margin: 0;
+}
+
+.jornada-header .jornada-percent {
+    margin-left: auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--cor-sucesso);
+}
+
+.jornada-description {
+    color: var(--cor-texto);
+    margin-bottom: 1.5rem;
+}
+
+.jornada-progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #374151;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.jornada-progress-bar .progress {
+    height: 100%;
+    background-color: var(--cor-primaria);
+    border-radius: 4px;
+}
+
+.jornada-steps {
+    display: flex;
+    justify-content: space-between;
+    color: var(--cor-texto);
+}
+
+.jornada-steps .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 0.85rem;
+    position: relative;
+    flex: 1;
+}
+
+.jornada-steps .step span {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #374151;
+    color: var(--cor-texto);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    border: 2px solid #374151;
+    transition: all 0.3s ease;
+}
+
+.jornada-steps .step.active span {
+    background-color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    color: var(--cor-titulo);
+}
+
+.jornada-steps .step.next {
+    cursor: pointer;
+}
+
+.jornada-steps .step.completed {
+    opacity: 0.6;
+}
+
+.jornada-steps .step.completed span {
+    background-color: var(--cor-sucesso);
+    border-color: var(--cor-sucesso);
+    color: var(--cor-titulo);
+}
+
+@media (max-width: 992px) {
+    .primeiros-passos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .primeiros-passos-grid {
+        grid-template-columns: 1fr;
+    }
+    .jornada-steps {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .jornada-steps .step {
+        flex-direction: row;
+        text-align: left;
+        gap: 1rem;
+    }
+}

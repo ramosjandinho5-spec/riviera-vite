@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <title>Portal do Cidadão - Governo de Riviera</title>
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/header.css">
+    <link rel="stylesheet" href="src/cidadao.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- O cabeçalho será copiado do index.html para manter a consistência -->
+    <header>
+        <div class="logo">
+            <img src="/src/assets/logo.png" alt="Logo Riviera" height="90">
+            <div>
+                <h1>GOVERNO DA CIDADE</h1>
+                <h2>RIVIERA</h2>
+                <p>TRABALHANDO POR TODOS, TODOS OS DIAS.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li class="dropdown">
+                            <a href="#" id="governo-button">GOVERNO <i class="fa-solid fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-landmark"></i> Administração</h4>
+                                    <ul>
+                                        <li><a href="#">Prefeito</a></li>
+                                        <li><a href="#">Vice-Prefeito</a></li>
+                                        <li><a href="#">Secretarias</a></li>
+                                        <li><a href="#">Organograma</a></li>
+                                        <li><a href="#">Agenda Oficial</a></li>
+                                        <li><a href="#">Plano de Governo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-gavel"></i> Legislação</h4>
+                                    <ul>
+                                        <li><a href="constituicao.html" id="constituicao-btn">Constituição da Cidade</a></li>
+                                        <li><a href="codigo-penal.html">Código Penal</a></li>
+                                        <li><a href="codigo-civil.html">Código Civil</a></li>
+                                        <li><a href="#">Código Processual Penal</a></li>
+                                        <li><a href="codigo-de-transito.html">Código de Trânsito</a></li>
+                                        <li><a href="calculadora-penal.html">Calculadora Unificada</a></li>
+                                        <li><a href="leis-municipais.html">Leis Municipais</a></li>
+                                        <li><a href="#">Decretos</a></li>
+                                        <li><a href="#">Portarias</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4><i class="fa-solid fa-building-columns"></i> Órgãos Públicos</h4>
+                                    <ul>
+                                        <li><a href="#">Polícia Militar</a></li>
+                                        <li><a href="#">Polícia Civil</a></li>
+                                        <li><a href="#">Tribunal de Justiça</a></li>
+                                        <li><a href="#">Ministério Público</a></li>
+                                        <li><a href="#">Hospital Municipal</a></li>
+                                        <li><a href="#">Corpo de Bombeiros</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    <li><a href="cidadao.html" class="active">CIDADÃO</a></li>
+                    <li><a href="transparencia.html">TRANSPARÊNCIA</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="player-count">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="player-count-span">--/--</span>
+                </div>
+                <a href="https://discord.gg/PPxnpFxrph" target="_blank" class="btn btn-outline">SERVIDOR DA CIDADE</a>
+                <a href="https://riviera_city.hydrus.gg/" target="_blank" class="btn btn-primary btn-vip">LOJA VIP</a>
+                <a href="#" id="area-governo-btn" class="btn btn-primary">ÁREA DO GOVERNO</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="portal-cidadao">
+        <section class="portal-banner">
+        </section>
+
+        <!-- As seções abaixo serão preenchidas dinamicamente pelo cidadao.js -->
+        <section id="primeiros-passos" class="portal-section">
+            <h2><i data-lucide="rocket"></i> Primeiros Passos</h2>
+            <p class="section-description">Novo na cidade? Aqui você encontra tudo o que precisa para iniciar sua jornada.</p>
+            <div class="card-grid"></div>
+        </section>
+
+        <section id="seja-staff" class="portal-section">
+            <div class="staff-card">
+                <div class="staff-card-content">
+                    <h3><i data-lucide="star"></i> Faça Parte da Nossa Equipe</h3>
+                    <p>Você tem paixão por ajudar a comunidade e quer fazer a diferença em Riviera? Estamos sempre em busca de pessoas dedicadas para se juntarem à nossa equipe de Staff. Clique no botão ao lado para saber mais sobre os requisitos e como se candidatar.</p>
+                </div>
+                <a href="#" class="btn btn-staff" id="abrir-staff-modal">Quero Ser Staff</a>
+            </div>
+        </section>
+
+        <section id="empregos" class="portal-section">
+            <h2><i data-lucide="briefcase"></i> Empregos</h2>
+            <p class="section-description">Conheça todas as profissões disponíveis na cidade e saiba como ingressar em cada uma delas.</p>
+            <div class="card-grid"></div>
+        </section>
+
+        <section id="servicos-publicos" class="portal-section">
+            <h2><i data-lucide="landmark"></i> Serviços Públicos</h2>
+            <div class="card-grid"></div>
+        </section>
+
+        <section id="documentos" class="portal-section">
+            <h2><i data-lucide="file-text"></i> Documentos</h2>
+            <p class="section-description">Consulte informações sobre emissão e renovação de documentos.</p>
+            <div class="card-grid"></div>
+        </section>
+
+        <section id="empresas" class="portal-section">
+            <h2><i data-lucide="building-2"></i> Empresas</h2>
+            <p class="section-description">Informações para empreendedores que desejam abrir ou administrar empresas na cidade.</p>
+            <div class="card-grid"></div>
+        </section>
+
+        <section id="moradia" class="portal-section">
+            <h2><i data-lucide="home"></i> Moradia</h2>
+            <div class="card-grid"></div>
+        </section>
+
+        <section id="contatos" class="portal-section">
+            <h2><i data-lucide="phone"></i> Contatos Úteis</h2>
+            <div class="card-grid"></div>
+        </section>
+
+        <section id="faq" class="portal-section">
+            <h2><i data-lucide="help-circle"></i> Perguntas Frequentes</h2>
+            <div class="accordion"></div>
+        </section>
+    </main>
+
+    <!-- O rodapé será copiado do index.html para manter a consistência -->
+    <footer>
+        <p>&copy; 2024 Governo da Cidade de Riviera. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Modal Como Começar -->
+    <div id="como-comecar-modal" class="modal">
+        <div class="modal-content large">
+            <span class="close-modal-btn">&times;</span>
+            <h2>Como Começar na Cidade</h2>
+            <p>Siga estes passos para uma integração tranquila em Riviera.</p>
+            <div class="passos-container">
+                <div class="passo">
+                        <img src="/src/assets/id.png" alt="Liberação de ID">
+                        <h3>1. Libere seu ID!</h3>
+                        <p>O primeiro passo é entrar em nosso servidor, entrar na cidade e liberar seu ID no canal de whitelist (WL).</p>
+                    </div>
+                <div class="passo">
+                        <div class="passo-slideshow">
+                            <img src="/src/assets/moradia1.png" alt="Moradia 1" class="slide active">
+                            <img src="/src/assets/moradia2.png" alt="Moradia 2" class="slide">
+                            <img src="/src/assets/moradia3.png" alt="Moradia 3" class="slide">
+                            <button class="slide-btn prev">&#10094;</button>
+                            <button class="slide-btn next">&#10095;</button>
+                        </div>
+                        <h3>2. Adquira sua Moradia</h3>
+                        <p>Compre um imóvel para ter um lugar seguro para guardar seus pertences e descansar.</p>
+                    </div>
+                <div class="passo">
+                     <img src="/src/assets/emprego.png" alt="Emprego">
+                     <h3>3. Consiga um Emprego</h3>
+                     <p>Visite a agência de empregos na praça central e explore os empregos para iniciantes para começar a ganhar seu dinheiro.</p>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script type="module" src="src/main.js"></script>
+    <script type="module" src="src/cidadao.js"></script>
+    <script type="module" src="src/juridico-form.js"></script>
+    <script type="module" src="src/policia-form.js"></script>
+
+    <!-- Modal de Candidatura Staff -->
+    <div id="staff-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>Candidatura para a Equipe Staff</h2>
+            <p>Preencha o formulário abaixo com atenção. Entraremos em contato se o seu perfil for selecionado.</p>
+            <form id="staff-form">
+                    <div class="form-group">
+                        <label for="nome-real">Nome Real</label>
+                        <input type="text" id="nome-real" name="nome-real" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nome-cidade">Nome na Cidade</label>
+                        <input type="text" id="nome-cidade" name="nome-cidade" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="id-cidade">Seu ID</label>
+                        <input type="number" id="id-cidade" name="id-cidade" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="horarios">Horários Disponíveis (para bate-papo)</label>
+                        <input type="text" id="horarios" name="horarios" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="experiencia">Experiência (em outros servidores, etc.)</label>
+                        <textarea id="experiencia" name="experiencia" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Candidatura</button>
+                </form>
+        </div>
+    </div>
+
+    <!-- Modal de Autenticação -->
+    <div id="auth-modal" class="auth-modal-overlay">
+        <div class="auth-modal-content">
+            <span class="close-button">&times;</span>
+            
+            <!-- Formulário de Login -->
+            <form id="login-form" class="auth-form">
+                <h2>Área do Governo</h2>
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit">Entrar</button>
+                <p class="toggle-form">Não tem uma conta? <a id="show-register">Crie uma agora</a></p>
+            </form>
+
+            <!-- Formulário de Criação de Conta -->
+            <form id="register-form" class="auth-form">
+                <h2>Criar Conta</h2>
+                <div class="form-group">
+                    <label for="register-name">Nome Completo</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Senha</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <button type="submit">Criar Conta</button>
+                <p class="toggle-form">Já tem uma conta? <a id="show-login">Faça o login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Lightbox para Imagem Expandida -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+</body>
+</html>
