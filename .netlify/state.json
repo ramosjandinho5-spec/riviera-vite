@@ -1,0 +1,20 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "José Bonifácio",
+			"country": {
+				"code": "BR",
+				"name": "Brazil"
+			},
+			"subdivision": {
+				"code": "SP",
+				"name": "São Paulo"
+			},
+			"timezone": "America/Sao_Paulo",
+			"latitude": -21.0925,
+			"longitude": -49.7713,
+			"postalCode": "15200"
+		},
+		"timestamp": 1786292054737
+	}
+}

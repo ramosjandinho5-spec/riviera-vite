@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../../../../OneDrive/Desktop/Riviera-Vite/netlify/functions/player-count.js"],
+  "sourceRoot": "C:/Users/jands/AppData/Local/Temp/tmp-24264-m9En56C68Obj",
+  "sourcesContent": ["exports.handler = async (event, context) => {\r\n  const apiUrl = 'http://198.1.195.241:30120/players.json';\r\n\r\n  try {\r\n    const response = await fetch(apiUrl);\r\n    const data = await response.json();\r\n\r\n    return {\r\n      statusCode: 200,\r\n      headers: {\r\n        'Access-Control-Allow-Origin': '*', // Permite que qualquer site acesse\r\n      },\r\n      body: JSON.stringify(data),\r\n    };\r\n  } catch (error) {\r\n    return {\r\n      statusCode: 500,\r\n      body: JSON.stringify({ error: 'Failed to fetch player count' }),\r\n    };\r\n  }\r\n};"],
+  "mappings": ";AAAA,QAAQ,UAAU,OAAO,OAAO,YAAY;AAC1C,QAAM,SAAS;AAEf,MAAI;AACF,UAAM,WAAW,MAAM,MAAM,MAAM;AACnC,UAAM,OAAO,MAAM,SAAS,KAAK;AAEjC,WAAO;AAAA,MACL,YAAY;AAAA,MACZ,SAAS;AAAA,QACP,+BAA+B;AAAA;AAAA,MACjC;AAAA,MACA,MAAM,KAAK,UAAU,IAAI;AAAA,IAC3B;AAAA,EACF,SAAS,OAAO;AACd,WAAO;AAAA,MACL,YAAY;AAAA,MACZ,MAAM,KAAK,UAAU,EAAE,OAAO,+BAA+B,CAAC;AAAA,IAChE;AAAA,EACF;AACF;",
+  "names": []
+}
